@@ -24,7 +24,7 @@
 			<modifier keys="caps anyOption" />
 		</keyMapSelect>
 		<keyMapSelect mapIndex="6">
-			<modifier keys="command anyShift? caps? anyOption? anyControl?" />
+			<modifier keys="anyShift? caps? anyOption? command anyControl?" />
 		</keyMapSelect>
 		<keyMapSelect mapIndex="7">
 			<modifier keys="anyShift? caps? anyOption? anyControl" />
@@ -86,6 +86,7 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
+			<key code="64" output="&#x10;" />
 			<key code="65" action="a23" />
 			<key code="66" output="&#x1D;" />
 			<key code="67" output="*" />
@@ -97,6 +98,8 @@
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
 			<key code="78" output="-" />
+			<key code="79" output="&#x10;" />
+			<key code="80" output="&#x10;" />
 			<key code="81" action="a28" />
 			<key code="82" output="0" />
 			<key code="83" output="1" />
@@ -196,6 +199,7 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
+			<key code="64" output="&#x10;" />
 			<key code="65" action="a23" />
 			<key code="66" output="*" />
 			<key code="67" output="*" />
@@ -207,6 +211,8 @@
 			<key code="76" output="&#x3;" />
 			<key code="77" output="/" />
 			<key code="78" output="-" />
+			<key code="79" output="&#x10;" />
+			<key code="80" output="&#x10;" />
 			<key code="81" action="a28" />
 			<key code="82" output="0" />
 			<key code="83" output="1" />
@@ -432,12 +438,15 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
+			<key code="64" output="&#x10;" />
 			<key code="66" output="&#x1D;" />
 			<key code="70" output="&#x1C;" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" output="&#x1F;" />
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
+			<key code="79" output="&#x10;" />
+			<key code="80" output="&#x10;" />
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
 			<key code="98" output="&#x10;" />
@@ -524,12 +533,15 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
+			<key code="64" output="&#x10;" />
 			<key code="66" output="*" />
 			<key code="70" action="a25" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" action="a28" />
 			<key code="76" output="&#x3;" />
 			<key code="77" output="/" />
+			<key code="79" output="&#x10;" />
+			<key code="80" output="&#x10;" />
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
 			<key code="98" output="&#x10;" />
@@ -616,12 +628,15 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
+			<key code="64" output="&#x10;" />
 			<key code="66" output="&#x1D;" />
 			<key code="70" output="&#x1C;" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" output="&#x1F;" />
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
+			<key code="79" output="&#x10;" />
+			<key code="80" output="&#x10;" />
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
 			<key code="98" output="&#x10;" />
@@ -709,6 +724,7 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
+			<key code="64" output="&#x10;" />
 			<key code="65" action="a23" />
 			<key code="66" output="&#x1D;" />
 			<key code="67" output="*" />
@@ -720,6 +736,8 @@
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
 			<key code="78" output="-" />
+			<key code="79" output="&#x10;" />
+			<key code="80" output="&#x10;" />
 			<key code="81" action="a28" />
 			<key code="82" output="0" />
 			<key code="83" output="1" />
@@ -803,12 +821,15 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
+			<key code="64" output="&#x10;" />
 			<key code="66" output="&#x1D;" />
 			<key code="70" output="&#x1C;" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" output="&#x1F;" />
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
+			<key code="79" output="&#x10;" />
+			<key code="80" output="&#x10;" />
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
 			<key code="98" output="&#x10;" />
