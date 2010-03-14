@@ -95,7 +95,11 @@ task :cleanup do
   end
 
   Pathname.glob('**/*.keylayout') do |file|
-    file.write(DumbXml.new(file.read).to_s)
-    p system(['klcompiler', file].shelljoin + ' > /dev/null')
+    data = file.read
+    fixed = DumbXml.new(file.read).to_s
+    unless data == fixed
+      file.write(fixed)
+      p system(['klcompiler', file].shelljoin + ' > /dev/null')
+    end
   end
 end
