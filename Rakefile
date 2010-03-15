@@ -9,7 +9,6 @@ task :install do
     dst.make_link(src.expand_path)
   end
 end
-task :default => :install
 
 desc "Cleanup all keylayout files"
 task :cleanup do
