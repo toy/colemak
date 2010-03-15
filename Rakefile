@@ -98,8 +98,9 @@ task :cleanup do
     data = file.read
     fixed = DumbXml.new(file.read).to_s
     unless data == fixed
+      print file
       file.write(fixed)
-      p system(['klcompiler', file].shelljoin + ' > /dev/null')
+      puts system(['klcompiler', file].shelljoin + ' > /dev/null') ? ' Ok' : ' Ops'
     end
   end
 end
