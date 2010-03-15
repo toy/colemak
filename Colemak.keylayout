@@ -490,7 +490,7 @@
 			<key code="7" action="a15" />
 			<key code="8" action="a119" />
 			<key code="9" output="Œ" />
-			<key code="11" action="a15" />
+			<key code="11" output="⇧" />
 			<key code="12" action="a151" />
 			<key code="13" action="a118" />
 			<key code="14" action="a106" />
@@ -521,12 +521,12 @@
 			<key code="39" action="a123" />
 			<key code="40" action="a148" />
 			<key code="41" action="a92" />
-			<key code="42" action="a15" />
-			<key code="43" action="a15" />
-			<key code="44" action="a15" />
-			<key code="45" action="a15" />
-			<key code="46" action="a15" />
-			<key code="47" action="a15" />
+			<key code="42" output="" />
+			<key code="43" output="⌘" />
+			<key code="44" output="⎋" />
+			<key code="45" output="⌃" />
+			<key code="46" output="⌥" />
+			<key code="47" output="…" />
 			<key code="48" output="&#x9;" />
 			<key code="49" output=" " />
 			<key code="50" action="a15" />
