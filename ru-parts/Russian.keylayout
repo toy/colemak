@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
-<keyboard group="7" id="19456" name="Russian - Colemak ⌘" maxout="1">
+<keyboard group="7" id="19456" name="Russian" maxout="1">
 	<layouts>
-		<layout first="0" last="0" modifiers="30" mapSet="138" />
+		<layout first="0" last="0" modifiers="48" mapSet="312" />
 	</layouts>
-	<modifierMap id="30" defaultIndex="5">
+	<modifierMap id="48" defaultIndex="5">
 		<keyMapSelect mapIndex="1">
 			<modifier keys="anyShift caps?" />
 		</keyMapSelect>
@@ -15,7 +15,7 @@
 			<modifier keys="caps" />
 		</keyMapSelect>
 	</modifierMap>
-	<keyMapSet id="138">
+	<keyMapSet id="312">
 		<keyMap index="1">
 			<key code="0" output="Ф" />
 			<key code="1" output="Ы" />
@@ -27,7 +27,7 @@
 			<key code="7" output="Ч" />
 			<key code="8" output="С" />
 			<key code="9" output="М" />
-			<key code="10" output="±" />
+			<key code="10" output="&#x3C;" />
 			<key code="11" output="И" />
 			<key code="12" output="Й" />
 			<key code="13" output="Ц" />
@@ -139,7 +139,7 @@
 			<key code="7" output="ч" />
 			<key code="8" output="с" />
 			<key code="9" output="м" />
-			<key code="10" output="§" />
+			<key code="10" output="&#x3E;" />
 			<key code="11" output="и" />
 			<key code="12" output="й" />
 			<key code="13" output="ц" />
