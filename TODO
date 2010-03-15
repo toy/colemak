@@ -1,0 +1,3 @@
+copy colemak to russian
+find real diff in various source/russian*.keylayout
+copy parts from russian without modifiers, with shift and with caps
