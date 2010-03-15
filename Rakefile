@@ -25,7 +25,8 @@ task :cleanup do
     end
 
     def parse(str)
-      @str, @level = '', 0
+      @groups = []
+      @level = 0
       str = str.gsub(/\="(.*?)"/m) do |val|
         %Q{="#{escape_unescaped($1)}"}
       end
@@ -33,33 +34,51 @@ task :cleanup do
       str.scan(/<.*?>/) do |tag|
         case tag
         when /^<\?/                 # <?xml ?>
-          line tag
+          line :'?', tag
+
         when /^<\!--.*-->$/         # <!--  -->
-          # line tag
+          # line :'#', tag
+
         when /^<\!/                 # <!DOCTYPE >
-          line tag
+          line :'!', tag
+
         when /^<\/(.*?)>$/          # </xxx>
           @level -= 1
-          line tag
+          line :c, tag
+
         when /^<(.*?)\s*\/>$/       # <xxx />
-          line "<#{$1} />"
+          line :s, "<#{$1} />"
+
         when /^<[^\/](.*?)[^\/]>$/  # <xxx>
-          line tag
+          line :o, tag
           @level += 1
+
         else
           raise "can't handle #{tag.inspect}"
         end
-      end.gsub(/\s+/, ' ')
+      end
     end
 
     def to_s
-      @str
+      ''.tap do |str|
+        @groups.map do |group|
+          level = group[:level]
+          group[:lines].sort_by do |line|
+            line.split('"').map{ |piece| piece[/\d+/].to_i }
+          end.each do |line|
+            str << "\t" * level << line << "\n"
+          end
+        end
+      end
     end
 
   private
 
-    def line(tag)
-      @str << "\t" * @level << tag << "\n"
+    def line(type, line)
+      if !@groups.last || @groups.last[:type] != type || @groups.last[:level] != @level
+        @groups << {:type => type, :level => @level, :lines => []}
+      end
+      @groups.last[:lines] << line
     end
 
     def unescape(str)
