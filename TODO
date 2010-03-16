@@ -1,6 +1,9 @@
 finish resolve_clashes:
 	find all keys in 0, 1, 2 which need to be duplicated in actions:
 		for 0 and 2: all except 0-9 and further; for 1: all
-	find all action clashes between 0; 1,2; others and duplicate actions in form a10-1
+	find all action clashes between 0; 1,2; others and duplicate actions in form a10-1:
+		note that some actions are fired from many codes!!!
 finish russian: for without modifiers, with shift and with caps
 find all redundant actions
+bundle it all:
+	http://developer.apple.com/mac/library/technotes/tn2002/tn2056.html#document_revision_summary
