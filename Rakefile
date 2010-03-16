@@ -197,3 +197,37 @@ task :delete_duplicate_actions do
   file.write(ent_cleanup(doc.to_xml))
   DumbXml.cleanup(file)
 end
+
+desc "Show unused actions"
+task :show_unused_actions do
+  file = Pathname('Russian Colemak.keylayout')
+  doc = Nokogiri::XML(ent_preserve(file.read))
+
+  used_actions = Set.new
+  (doc / '//keyboard/keyMapSet/keyMap/key').each do |key|
+    if action_id = key['action']
+      used_actions << action_id
+    end
+  end
+
+  existing_actions = Set.new
+  (doc / '//keyboard/actions/action').each do |action|
+    existing_actions << action['id']
+  end
+
+  def sort_actions(actions)
+    actions.to_a.sort_by{ |action_id| action_id[/\d+/].to_i }
+  end
+
+  puts "Used actions — #{used_actions.length}"
+  puts "Existing actions — #{existing_actions.length}"
+
+  unexisting_actions = sort_actions(used_actions - existing_actions)
+  unless unexisting_actions.empty?
+    puts "Unexisting actions[#{unexisting_actions.length}]: #{unexisting_actions.join(', ')}"
+  end
+  unused_actions = sort_actions(existing_actions - used_actions)
+  unless unused_actions.empty?
+    puts "Unused actions[#{unused_actions.length}]: #{unused_actions.join(', ')}"
+  end
+end
