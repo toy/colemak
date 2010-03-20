@@ -7,6 +7,12 @@ require 'hpricot'
 require 'nokogiri'
 require 'colored'
 
+letters = [
+  %w[12 13 14 15 17 16 32 34 31 35 33 30],
+  %w[0 1 2 3 5 4 38 40 37 41 39 42],
+  %w[6 7 8 9 11 45 46 43 47],
+].flatten.map(&:to_i)
+
 def ent_preserve(s)
   s.to_s.gsub('&', '&amp;')
 end
@@ -230,4 +236,36 @@ task :show_unused_actions do
   unless unused_actions.empty?
     puts "Unused actions[#{unused_actions.length}]: #{unused_actions.join(', ')}"
   end
+end
+
+desc "Copy parts to russian"
+task :copy_parts_to_russian do
+  file = Pathname('Russian Colemak.keylayout')
+  doc = Nokogiri::XML(ent_preserve(file.read))
+
+  parts = Nokogiri::XML(ent_preserve(Pathname('parts/Russian.keylayout').read))
+
+  remap = {}
+  (parts / '//keyboard/keyMapSet/keyMap/key').each do |key|
+    if letters.include?(key['code'].to_i)
+      remap[[key.parent['index'], key['code']]] = key['output']
+    end
+  end
+
+  (doc / '//keyboard/keyMapSet/keyMap/key').each do |key|
+    if output = remap[[key.parent['index'], key['code']]]
+      case
+      when key['output']
+        key['output'] = output
+      when action_id = key['action']
+        none_state = doc % %{action[@id="#{action_id}"]/when[@state="none"]}
+        none_state['output'] = output
+      else
+        abort "Don't know how to handle #{key.to_xml}"
+      end
+    end
+  end
+
+  file.write(ent_cleanup(doc.to_xml))
+  DumbXml.cleanup(file)
 end
