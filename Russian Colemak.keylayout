@@ -44,7 +44,7 @@
 			<key code="9" action="a82" />
 			<key code="10" output="§" />
 			<key code="11" action="a53" />
-			<key code="12" output="q" />
+			<key code="12" output="й" />
 			<key code="13" action="a57" />
 			<key code="14" action="a54" />
 			<key code="15" action="a22" />
@@ -62,20 +62,20 @@
 			<key code="27" output="-" />
 			<key code="28" output="8" />
 			<key code="29" output="0" />
-			<key code="30" output="]" />
+			<key code="30" output="ъ" />
 			<key code="31" action="a59" />
 			<key code="32" action="a36" />
-			<key code="33" output="[" />
+			<key code="33" output="х" />
 			<key code="34" action="a81" />
-			<key code="35" output=";" />
+			<key code="35" output="з" />
 			<key code="36" output="&#xD;" />
 			<key code="37" action="a80" />
 			<key code="38" action="a18" />
-			<key code="39" output="'" />
+			<key code="39" output="э" />
 			<key code="40" action="a32" />
 			<key code="41" action="a56" />
-			<key code="42" output="\" />
-			<key code="43" output="," />
+			<key code="42" output="ё" />
+			<key code="43" output="б" />
 			<key code="44" output="/" />
 			<key code="45" action="a35" />
 			<key code="46" action="a21" />
@@ -87,7 +87,7 @@
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
 			<key code="64" output="&#x10;" />
-			<key code="65" action="a23" />
+			<key code="65" action="a158" />
 			<key code="66" output="&#x1D;" />
 			<key code="67" output="*" />
 			<key code="69" action="a25" />
@@ -157,7 +157,7 @@
 			<key code="9" action="a91" />
 			<key code="10" output="±" />
 			<key code="11" action="a66" />
-			<key code="12" output="Q" />
+			<key code="12" output="Й" />
 			<key code="13" action="a72" />
 			<key code="14" action="a67" />
 			<key code="15" action="a71" />
@@ -175,16 +175,16 @@
 			<key code="27" output="_" />
 			<key code="28" output="*" />
 			<key code="29" output=")" />
-			<key code="30" output="}" />
+			<key code="30" output="Ъ" />
 			<key code="31" action="a74" />
 			<key code="32" action="a45" />
-			<key code="33" output="{" />
+			<key code="33" output="Х" />
 			<key code="34" action="a90" />
-			<key code="35" output=":" />
+			<key code="35" output="З" />
 			<key code="36" output="&#xD;" />
 			<key code="37" action="a68" />
 			<key code="38" action="a46" />
-			<key code="39" output="&#x22;" />
+			<key code="39" output="Э" />
 			<key code="40" action="a41" />
 			<key code="41" action="a70" />
 			<key code="42" action="a29" />
@@ -200,7 +200,7 @@
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
 			<key code="64" output="&#x10;" />
-			<key code="65" action="a23" />
+			<key code="65" action="a158" />
 			<key code="66" output="*" />
 			<key code="67" output="*" />
 			<key code="69" action="a25" />
@@ -270,7 +270,7 @@
 			<key code="9" action="a91" />
 			<key code="10" output="§" />
 			<key code="11" action="a66" />
-			<key code="12" output="Q" />
+			<key code="12" output="Й" />
 			<key code="13" action="a72" />
 			<key code="14" action="a67" />
 			<key code="15" action="a71" />
@@ -288,24 +288,24 @@
 			<key code="27" output="-" />
 			<key code="28" output="8" />
 			<key code="29" output="0" />
-			<key code="30" output="]" />
+			<key code="30" output="Ъ" />
 			<key code="31" action="a74" />
 			<key code="32" action="a45" />
-			<key code="33" output="[" />
+			<key code="33" output="Х" />
 			<key code="34" action="a90" />
-			<key code="35" output=";" />
+			<key code="35" output="З" />
 			<key code="36" output="&#xD;" />
 			<key code="37" action="a68" />
 			<key code="38" action="a46" />
-			<key code="39" output="'" />
+			<key code="39" output="Э" />
 			<key code="40" action="a41" />
 			<key code="41" action="a70" />
-			<key code="42" output="\" />
-			<key code="43" output="," />
+			<key code="42" output="Ё" />
+			<key code="43" output="Б" />
 			<key code="44" output="/" />
 			<key code="45" action="a44" />
 			<key code="46" action="a69" />
-			<key code="47" action="a23" />
+			<key code="47" action="a197" />
 			<key code="48" output="&#x9;" />
 			<key code="49" action="a31" />
 			<key code="50" output="`" />
@@ -323,7 +323,7 @@
 			<key code="62" output="&#x0;" />
 			<key code="63" output="&#x0;" />
 			<key code="64" output="&#x0;" />
-			<key code="65" action="a23" />
+			<key code="65" action="a158" />
 			<key code="66" output="&#x1D;" />
 			<key code="67" output="*" />
 			<key code="68" output="&#x0;" />
@@ -670,24 +670,24 @@
 			<key code="126" output="&#x1E;" />
 		</keyMap>
 		<keyMap index="6">
-			<key code="0" action="a52" />
-			<key code="1" action="a17" />
-			<key code="2" action="a30" />
-			<key code="3" action="a20" />
-			<key code="4" action="a34" />
-			<key code="5" action="a19" />
-			<key code="6" action="a60" />
-			<key code="7" action="a58" />
-			<key code="8" action="a16" />
-			<key code="9" action="a82" />
+			<key code="0" action="a249" />
+			<key code="1" action="a250" />
+			<key code="2" action="a251" />
+			<key code="3" action="a252" />
+			<key code="4" action="a253" />
+			<key code="5" action="a254" />
+			<key code="6" action="a255" />
+			<key code="7" action="a256" />
+			<key code="8" action="a257" />
+			<key code="9" action="a258" />
 			<key code="10" output="§" />
-			<key code="11" action="a53" />
+			<key code="11" action="a259" />
 			<key code="12" output="q" />
-			<key code="13" action="a57" />
-			<key code="14" action="a54" />
-			<key code="15" action="a22" />
-			<key code="16" action="a137" />
-			<key code="17" action="a33" />
+			<key code="13" action="a260" />
+			<key code="14" action="a261" />
+			<key code="15" action="a262" />
+			<key code="16" action="a263" />
+			<key code="17" action="a264" />
 			<key code="18" output="1" />
 			<key code="19" output="2" />
 			<key code="20" output="3" />
@@ -701,23 +701,23 @@
 			<key code="28" output="8" />
 			<key code="29" output="0" />
 			<key code="30" output="]" />
-			<key code="31" action="a59" />
-			<key code="32" action="a36" />
+			<key code="31" action="a266" />
+			<key code="32" action="a267" />
 			<key code="33" output="[" />
-			<key code="34" action="a81" />
+			<key code="34" action="a268" />
 			<key code="35" output=";" />
 			<key code="36" output="&#xD;" />
-			<key code="37" action="a80" />
-			<key code="38" action="a18" />
+			<key code="37" action="a269" />
+			<key code="38" action="a270" />
 			<key code="39" output="'" />
-			<key code="40" action="a32" />
-			<key code="41" action="a56" />
+			<key code="40" action="a271" />
+			<key code="41" action="a272" />
 			<key code="42" output="\" />
 			<key code="43" output="," />
 			<key code="44" output="/" />
-			<key code="45" action="a35" />
-			<key code="46" action="a21" />
-			<key code="47" action="a23" />
+			<key code="45" action="a273" />
+			<key code="46" action="a274" />
+			<key code="47" action="a158" />
 			<key code="48" output="&#x9;" />
 			<key code="49" action="a31" />
 			<key code="50" output="`" />
@@ -725,7 +725,7 @@
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
 			<key code="64" output="&#x10;" />
-			<key code="65" action="a23" />
+			<key code="65" action="a158" />
 			<key code="66" output="&#x1D;" />
 			<key code="67" output="*" />
 			<key code="69" action="a25" />
@@ -911,7 +911,7 @@
 			<when state="s1" output="≈" />
 		</action>
 		<action id="a16">
-			<when state="none" output="c" />
+			<when state="none" output="с" />
 			<when state="s1" output="©" />
 			<when state="s2" output="ç" />
 			<when state="s3" output="ċ" />
@@ -920,7 +920,7 @@
 			<when state="s13" output="ĉ" />
 		</action>
 		<action id="a17">
-			<when state="none" output="r" />
+			<when state="none" output="ы" />
 			<when state="s1" output="®" />
 			<when state="s2" output="ŗ" />
 			<when state="s3" output="ṙ" />
@@ -928,7 +928,7 @@
 			<when state="s8" output="ř" />
 		</action>
 		<action id="a18">
-			<when state="none" output="n" />
+			<when state="none" output="о" />
 			<when state="s1" output="№" />
 			<when state="s2" output="ņ" />
 			<when state="s3" output="ṅ" />
@@ -938,14 +938,14 @@
 			<when state="s11" output="ǹ" />
 		</action>
 		<action id="a19">
-			<when state="none" output="d" />
+			<when state="none" output="п" />
 			<when state="s1" output="°" />
 			<when state="s2" output="ḑ" />
 			<when state="s3" output="ḋ" />
 			<when state="s8" output="ď" />
 		</action>
 		<action id="a20">
-			<when state="none" output="t" />
+			<when state="none" output="а" />
 			<when state="s1" output="™" />
 			<when state="s2" output="ţ" />
 			<when state="s3" output="ṫ" />
@@ -953,19 +953,19 @@
 			<when state="s8" output="ť" />
 		</action>
 		<action id="a21">
-			<when state="none" output="m" />
+			<when state="none" output="ь" />
 			<when state="s1" output="µ" />
 			<when state="s3" output="ṁ" />
 			<when state="s6" output="ḿ" />
 		</action>
 		<action id="a22">
-			<when state="none" output="p" />
+			<when state="none" output="к" />
 			<when state="s1" output="¶" />
 			<when state="s3" output="ṗ" />
 			<when state="s6" output="ṕ" />
 		</action>
 		<action id="a23">
-			<when state="none" output="." />
+			<when state="none" output="ю" />
 			<when state="s1" output="…" />
 		</action>
 		<action id="a24">
@@ -977,11 +977,11 @@
 			<when state="s1" output="±" />
 		</action>
 		<action id="a26">
-			<when state="none" output="&#x3C;" />
+			<when state="none" output="Б" />
 			<when state="s1" output="≤" />
 		</action>
 		<action id="a27">
-			<when state="none" output="&#x3E;" />
+			<when state="none" output="Ю" />
 			<when state="s1" output="≥" />
 		</action>
 		<action id="a28">
@@ -989,11 +989,11 @@
 			<when state="s1" output="≠" />
 		</action>
 		<action id="a29">
-			<when state="none" output="|" />
+			<when state="none" output="Ё" />
 			<when state="s1" output="¦" />
 		</action>
 		<action id="a30">
-			<when state="none" output="s" />
+			<when state="none" output="в" />
 			<when state="s1" output="§" />
 			<when state="s2" output="ş" />
 			<when state="s3" output="ṡ" />
@@ -1019,7 +1019,7 @@
 			<when state="s14" output="˝" />
 		</action>
 		<action id="a32">
-			<when state="none" output="e" />
+			<when state="none" output="л" />
 			<when state="s2" output="ȩ" />
 			<when state="s3" output="ė" />
 			<when state="s4" output="ẽ" />
@@ -1033,7 +1033,7 @@
 			<when state="s13" output="ê" />
 		</action>
 		<action id="a33">
-			<when state="none" output="g" />
+			<when state="none" output="е" />
 			<when state="s2" output="ģ" />
 			<when state="s3" output="ġ" />
 			<when state="s5" output="ğ" />
@@ -1043,7 +1043,7 @@
 			<when state="s13" output="ĝ" />
 		</action>
 		<action id="a34">
-			<when state="none" output="h" />
+			<when state="none" output="р" />
 			<when state="s2" output="ḩ" />
 			<when state="s3" output="ḣ" />
 			<when state="s7" output="ḧ" />
@@ -1051,13 +1051,13 @@
 			<when state="s13" output="ĥ" />
 		</action>
 		<action id="a35">
-			<when state="none" output="k" />
+			<when state="none" output="т" />
 			<when state="s2" output="ķ" />
 			<when state="s6" output="ḱ" />
 			<when state="s8" output="ǩ" />
 		</action>
 		<action id="a36">
-			<when state="none" output="l" />
+			<when state="none" output="г" />
 			<when state="s2" output="ļ" />
 			<when state="s3" output="ŀ" />
 			<when state="s6" output="ĺ" />
@@ -1072,7 +1072,7 @@
 			<when state="s2" output="ḝ" />
 		</action>
 		<action id="a39">
-			<when state="none" output="C" />
+			<when state="none" output="С" />
 			<when state="s2" output="Ç" />
 			<when state="s3" output="Ċ" />
 			<when state="s6" output="Ć" />
@@ -1080,13 +1080,13 @@
 			<when state="s13" output="Ĉ" />
 		</action>
 		<action id="a40">
-			<when state="none" output="D" />
+			<when state="none" output="П" />
 			<when state="s2" output="Ḑ" />
 			<when state="s3" output="Ḋ" />
 			<when state="s8" output="Ď" />
 		</action>
 		<action id="a41">
-			<when state="none" output="E" />
+			<when state="none" output="Л" />
 			<when state="s2" output="Ȩ" />
 			<when state="s3" output="Ė" />
 			<when state="s4" output="Ẽ" />
@@ -1100,7 +1100,7 @@
 			<when state="s13" output="Ê" />
 		</action>
 		<action id="a42">
-			<when state="none" output="G" />
+			<when state="none" output="Е" />
 			<when state="s2" output="Ģ" />
 			<when state="s3" output="Ġ" />
 			<when state="s5" output="Ğ" />
@@ -1110,7 +1110,7 @@
 			<when state="s13" output="Ĝ" />
 		</action>
 		<action id="a43">
-			<when state="none" output="H" />
+			<when state="none" output="Р" />
 			<when state="s2" output="Ḩ" />
 			<when state="s3" output="Ḣ" />
 			<when state="s7" output="Ḧ" />
@@ -1118,20 +1118,20 @@
 			<when state="s13" output="Ĥ" />
 		</action>
 		<action id="a44">
-			<when state="none" output="K" />
+			<when state="none" output="Т" />
 			<when state="s2" output="Ķ" />
 			<when state="s6" output="Ḱ" />
 			<when state="s8" output="Ǩ" />
 		</action>
 		<action id="a45">
-			<when state="none" output="L" />
+			<when state="none" output="Г" />
 			<when state="s2" output="Ļ" />
 			<when state="s3" output="Ŀ" />
 			<when state="s6" output="Ĺ" />
 			<when state="s8" output="Ľ" />
 		</action>
 		<action id="a46">
-			<when state="none" output="N" />
+			<when state="none" output="О" />
 			<when state="s2" output="Ņ" />
 			<when state="s3" output="Ṅ" />
 			<when state="s4" output="Ñ" />
@@ -1140,14 +1140,14 @@
 			<when state="s11" output="Ǹ" />
 		</action>
 		<action id="a47">
-			<when state="none" output="R" />
+			<when state="none" output="Ы" />
 			<when state="s2" output="Ŗ" />
 			<when state="s3" output="Ṙ" />
 			<when state="s6" output="Ŕ" />
 			<when state="s8" output="Ř" />
 		</action>
 		<action id="a48">
-			<when state="none" output="S" />
+			<when state="none" output="В" />
 			<when state="s2" output="Ş" />
 			<when state="s3" output="Ṡ" />
 			<when state="s6" output="Ś" />
@@ -1155,7 +1155,7 @@
 			<when state="s13" output="Ŝ" />
 		</action>
 		<action id="a49">
-			<when state="none" output="T" />
+			<when state="none" output="А" />
 			<when state="s2" output="Ţ" />
 			<when state="s3" output="Ṫ" />
 			<when state="s8" output="Ť" />
@@ -1169,7 +1169,7 @@
 			<when state="s2" output="Ḝ" />
 		</action>
 		<action id="a52">
-			<when state="none" output="a" />
+			<when state="none" output="ф" />
 			<when state="s3" output="ȧ" />
 			<when state="s4" output="ã" />
 			<when state="s5" output="ă" />
@@ -1183,11 +1183,11 @@
 			<when state="s13" output="â" />
 		</action>
 		<action id="a53">
-			<when state="none" output="b" />
+			<when state="none" output="и" />
 			<when state="s3" output="ḃ" />
 		</action>
 		<action id="a54">
-			<when state="none" output="f" />
+			<when state="none" output="у" />
 			<when state="s3" output="ḟ" />
 		</action>
 		<action id="a55">
@@ -1195,7 +1195,7 @@
 			<when state="s3" output="ẛ" />
 		</action>
 		<action id="a56">
-			<when state="none" output="o" />
+			<when state="none" output="ж" />
 			<when state="s3" output="ȯ" />
 			<when state="s4" output="õ" />
 			<when state="s5" output="ŏ" />
@@ -1209,7 +1209,7 @@
 			<when state="s14" output="ő" />
 		</action>
 		<action id="a57">
-			<when state="none" output="w" />
+			<when state="none" output="ц" />
 			<when state="s3" output="ẇ" />
 			<when state="s6" output="ẃ" />
 			<when state="s7" output="ẅ" />
@@ -1218,12 +1218,12 @@
 			<when state="s13" output="ŵ" />
 		</action>
 		<action id="a58">
-			<when state="none" output="x" />
+			<when state="none" output="ч" />
 			<when state="s3" output="ẋ" />
 			<when state="s7" output="ẍ" />
 		</action>
 		<action id="a59">
-			<when state="none" output="y" />
+			<when state="none" output="щ" />
 			<when state="s3" output="ẏ" />
 			<when state="s4" output="ỹ" />
 			<when state="s6" output="ý" />
@@ -1234,7 +1234,7 @@
 			<when state="s13" output="ŷ" />
 		</action>
 		<action id="a60">
-			<when state="none" output="z" />
+			<when state="none" output="я" />
 			<when state="s3" output="ż" />
 			<when state="s6" output="ź" />
 			<when state="s8" output="ž" />
@@ -1263,7 +1263,7 @@
 			<when state="s12" output="ǭ" />
 		</action>
 		<action id="a65">
-			<when state="none" output="A" />
+			<when state="none" output="Ф" />
 			<when state="s3" output="Ȧ" />
 			<when state="s4" output="Ã" />
 			<when state="s5" output="Ă" />
@@ -1277,15 +1277,15 @@
 			<when state="s13" output="Â" />
 		</action>
 		<action id="a66">
-			<when state="none" output="B" />
+			<when state="none" output="И" />
 			<when state="s3" output="Ḃ" />
 		</action>
 		<action id="a67">
-			<when state="none" output="F" />
+			<when state="none" output="У" />
 			<when state="s3" output="Ḟ" />
 		</action>
 		<action id="a68">
-			<when state="none" output="I" />
+			<when state="none" output="Д" />
 			<when state="s3" output="İ" />
 			<when state="s4" output="Ĩ" />
 			<when state="s5" output="Ĭ" />
@@ -1298,12 +1298,12 @@
 			<when state="s13" output="Î" />
 		</action>
 		<action id="a69">
-			<when state="none" output="M" />
+			<when state="none" output="Ь" />
 			<when state="s3" output="Ṁ" />
 			<when state="s6" output="Ḿ" />
 		</action>
 		<action id="a70">
-			<when state="none" output="O" />
+			<when state="none" output="Ж" />
 			<when state="s3" output="Ȯ" />
 			<when state="s4" output="Õ" />
 			<when state="s5" output="Ŏ" />
@@ -1317,12 +1317,12 @@
 			<when state="s14" output="Ő" />
 		</action>
 		<action id="a71">
-			<when state="none" output="P" />
+			<when state="none" output="К" />
 			<when state="s3" output="Ṗ" />
 			<when state="s6" output="Ṕ" />
 		</action>
 		<action id="a72">
-			<when state="none" output="W" />
+			<when state="none" output="Ц" />
 			<when state="s3" output="Ẇ" />
 			<when state="s6" output="Ẃ" />
 			<when state="s7" output="Ẅ" />
@@ -1330,12 +1330,12 @@
 			<when state="s13" output="Ŵ" />
 		</action>
 		<action id="a73">
-			<when state="none" output="X" />
+			<when state="none" output="Ч" />
 			<when state="s3" output="Ẋ" />
 			<when state="s7" output="Ẍ" />
 		</action>
 		<action id="a74">
-			<when state="none" output="Y" />
+			<when state="none" output="Щ" />
 			<when state="s3" output="Ẏ" />
 			<when state="s4" output="Ỹ" />
 			<when state="s6" output="Ý" />
@@ -1345,7 +1345,7 @@
 			<when state="s13" output="Ŷ" />
 		</action>
 		<action id="a75">
-			<when state="none" output="Z" />
+			<when state="none" output="Я" />
 			<when state="s3" output="Ż" />
 			<when state="s6" output="Ź" />
 			<when state="s8" output="Ž" />
@@ -1374,7 +1374,7 @@
 			<when state="s12" output="Ǭ" />
 		</action>
 		<action id="a80">
-			<when state="none" output="i" />
+			<when state="none" output="д" />
 			<when state="s3" output="ı" />
 			<when state="s4" output="ĩ" />
 			<when state="s5" output="ĭ" />
@@ -1387,7 +1387,7 @@
 			<when state="s13" output="î" />
 		</action>
 		<action id="a81">
-			<when state="none" output="u" />
+			<when state="none" output="ш" />
 			<when state="s4" output="ũ" />
 			<when state="s5" output="ŭ" />
 			<when state="s6" output="ú" />
@@ -1401,7 +1401,7 @@
 			<when state="s14" output="ű" />
 		</action>
 		<action id="a82">
-			<when state="none" output="v" />
+			<when state="none" output="м" />
 			<when state="s4" output="ṽ" />
 		</action>
 		<action id="a83">
@@ -1445,7 +1445,7 @@
 			<when state="s11" output="ồ" />
 		</action>
 		<action id="a90">
-			<when state="none" output="U" />
+			<when state="none" output="Ш" />
 			<when state="s4" output="Ũ" />
 			<when state="s5" output="Ŭ" />
 			<when state="s6" output="Ú" />
@@ -1459,7 +1459,7 @@
 			<when state="s14" output="Ű" />
 		</action>
 		<action id="a91">
-			<when state="none" output="V" />
+			<when state="none" output="М" />
 			<when state="s4" output="Ṽ" />
 		</action>
 		<action id="a92">
@@ -1681,7 +1681,7 @@
 			<when state="s8" output="ǯ" />
 		</action>
 		<action id="a137">
-			<when state="none" output="j" />
+			<when state="none" output="н" />
 			<when state="s8" output="ǰ" />
 			<when state="s13" output="ĵ" />
 		</action>
@@ -1764,12 +1764,232 @@
 			<when state="s13" output="ễ" />
 		</action>
 		<action id="a156">
-			<when state="none" output="J" />
+			<when state="none" output="Н" />
 			<when state="s13" output="Ĵ" />
 		</action>
 		<action id="a157">
 			<when state="none" output="Ẽ" />
 			<when state="s13" output="Ễ" />
+		</action>
+		<action id="a158">
+			<when state="none" output="." />
+			<when state="s1" output="…" />
+		</action>
+		<action id="a197">
+			<when state="none" output="Ю" />
+			<when state="s1" output="…" />
+		</action>
+		<action id="a249">
+			<when state="none" output="a" />
+			<when state="s3" output="ȧ" />
+			<when state="s4" output="ã" />
+			<when state="s5" output="ă" />
+			<when state="s6" output="á" />
+			<when state="s7" output="ä" />
+			<when state="s8" output="ǎ" />
+			<when state="s9" output="ā" />
+			<when state="s10" output="å" />
+			<when state="s11" output="à" />
+			<when state="s12" output="ą" />
+			<when state="s13" output="â" />
+		</action>
+		<action id="a250">
+			<when state="none" output="r" />
+			<when state="s1" output="®" />
+			<when state="s2" output="ŗ" />
+			<when state="s3" output="ṙ" />
+			<when state="s6" output="ŕ" />
+			<when state="s8" output="ř" />
+		</action>
+		<action id="a251">
+			<when state="none" output="s" />
+			<when state="s1" output="§" />
+			<when state="s2" output="ş" />
+			<when state="s3" output="ṡ" />
+			<when state="s6" output="ś" />
+			<when state="s8" output="š" />
+			<when state="s13" output="ŝ" />
+		</action>
+		<action id="a252">
+			<when state="none" output="t" />
+			<when state="s1" output="™" />
+			<when state="s2" output="ţ" />
+			<when state="s3" output="ṫ" />
+			<when state="s7" output="ẗ" />
+			<when state="s8" output="ť" />
+		</action>
+		<action id="a253">
+			<when state="none" output="h" />
+			<when state="s2" output="ḩ" />
+			<when state="s3" output="ḣ" />
+			<when state="s7" output="ḧ" />
+			<when state="s8" output="ȟ" />
+			<when state="s13" output="ĥ" />
+		</action>
+		<action id="a254">
+			<when state="none" output="d" />
+			<when state="s1" output="°" />
+			<when state="s2" output="ḑ" />
+			<when state="s3" output="ḋ" />
+			<when state="s8" output="ď" />
+		</action>
+		<action id="a255">
+			<when state="none" output="z" />
+			<when state="s3" output="ż" />
+			<when state="s6" output="ź" />
+			<when state="s8" output="ž" />
+			<when state="s13" output="ẑ" />
+		</action>
+		<action id="a256">
+			<when state="none" output="x" />
+			<when state="s3" output="ẋ" />
+			<when state="s7" output="ẍ" />
+		</action>
+		<action id="a257">
+			<when state="none" output="c" />
+			<when state="s1" output="©" />
+			<when state="s2" output="ç" />
+			<when state="s3" output="ċ" />
+			<when state="s6" output="ć" />
+			<when state="s8" output="č" />
+			<when state="s13" output="ĉ" />
+		</action>
+		<action id="a258">
+			<when state="none" output="v" />
+			<when state="s4" output="ṽ" />
+		</action>
+		<action id="a259">
+			<when state="none" output="b" />
+			<when state="s3" output="ḃ" />
+		</action>
+		<action id="a260">
+			<when state="none" output="w" />
+			<when state="s3" output="ẇ" />
+			<when state="s6" output="ẃ" />
+			<when state="s7" output="ẅ" />
+			<when state="s10" output="ẘ" />
+			<when state="s11" output="ẁ" />
+			<when state="s13" output="ŵ" />
+		</action>
+		<action id="a261">
+			<when state="none" output="f" />
+			<when state="s3" output="ḟ" />
+		</action>
+		<action id="a262">
+			<when state="none" output="p" />
+			<when state="s1" output="¶" />
+			<when state="s3" output="ṗ" />
+			<when state="s6" output="ṕ" />
+		</action>
+		<action id="a263">
+			<when state="none" output="j" />
+			<when state="s8" output="ǰ" />
+			<when state="s13" output="ĵ" />
+		</action>
+		<action id="a264">
+			<when state="none" output="g" />
+			<when state="s2" output="ģ" />
+			<when state="s3" output="ġ" />
+			<when state="s5" output="ğ" />
+			<when state="s6" output="ǵ" />
+			<when state="s8" output="ǧ" />
+			<when state="s9" output="ḡ" />
+			<when state="s13" output="ĝ" />
+		</action>
+		<action id="a266">
+			<when state="none" output="y" />
+			<when state="s3" output="ẏ" />
+			<when state="s4" output="ỹ" />
+			<when state="s6" output="ý" />
+			<when state="s7" output="ÿ" />
+			<when state="s9" output="ȳ" />
+			<when state="s10" output="ẙ" />
+			<when state="s11" output="ỳ" />
+			<when state="s13" output="ŷ" />
+		</action>
+		<action id="a267">
+			<when state="none" output="l" />
+			<when state="s2" output="ļ" />
+			<when state="s3" output="ŀ" />
+			<when state="s6" output="ĺ" />
+			<when state="s8" output="ľ" />
+		</action>
+		<action id="a268">
+			<when state="none" output="u" />
+			<when state="s4" output="ũ" />
+			<when state="s5" output="ŭ" />
+			<when state="s6" output="ú" />
+			<when state="s7" output="ü" />
+			<when state="s8" output="ǔ" />
+			<when state="s9" output="ū" />
+			<when state="s10" output="ů" />
+			<when state="s11" output="ù" />
+			<when state="s12" output="ų" />
+			<when state="s13" output="û" />
+			<when state="s14" output="ű" />
+		</action>
+		<action id="a269">
+			<when state="none" output="i" />
+			<when state="s3" output="ı" />
+			<when state="s4" output="ĩ" />
+			<when state="s5" output="ĭ" />
+			<when state="s6" output="í" />
+			<when state="s7" output="ï" />
+			<when state="s8" output="ǐ" />
+			<when state="s9" output="ī" />
+			<when state="s11" output="ì" />
+			<when state="s12" output="į" />
+			<when state="s13" output="î" />
+		</action>
+		<action id="a270">
+			<when state="none" output="n" />
+			<when state="s1" output="№" />
+			<when state="s2" output="ņ" />
+			<when state="s3" output="ṅ" />
+			<when state="s4" output="ñ" />
+			<when state="s6" output="ń" />
+			<when state="s8" output="ň" />
+			<when state="s11" output="ǹ" />
+		</action>
+		<action id="a271">
+			<when state="none" output="e" />
+			<when state="s2" output="ȩ" />
+			<when state="s3" output="ė" />
+			<when state="s4" output="ẽ" />
+			<when state="s5" output="ĕ" />
+			<when state="s6" output="é" />
+			<when state="s7" output="ë" />
+			<when state="s8" output="ě" />
+			<when state="s9" output="ē" />
+			<when state="s11" output="è" />
+			<when state="s12" output="ę" />
+			<when state="s13" output="ê" />
+		</action>
+		<action id="a272">
+			<when state="none" output="o" />
+			<when state="s3" output="ȯ" />
+			<when state="s4" output="õ" />
+			<when state="s5" output="ŏ" />
+			<when state="s6" output="ó" />
+			<when state="s7" output="ö" />
+			<when state="s8" output="ǒ" />
+			<when state="s9" output="ō" />
+			<when state="s11" output="ò" />
+			<when state="s12" output="ǫ" />
+			<when state="s13" output="ô" />
+			<when state="s14" output="ő" />
+		</action>
+		<action id="a273">
+			<when state="none" output="k" />
+			<when state="s2" output="ķ" />
+			<when state="s6" output="ḱ" />
+			<when state="s8" output="ǩ" />
+		</action>
+		<action id="a274">
+			<when state="none" output="m" />
+			<when state="s1" output="µ" />
+			<when state="s3" output="ṁ" />
+			<when state="s6" output="ḿ" />
 		</action>
 	</actions>
 	<terminators>
