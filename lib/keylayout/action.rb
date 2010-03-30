@@ -1,9 +1,5 @@
 class Keylayout
   class Action
-    def results
-      @results ||= {}
-    end
-
     def [](state)
       results[state]
     end
@@ -19,8 +15,15 @@ class Keylayout
     def hash
       results.hash
     end
+
     def eql?(other)
-      results.eql?(other.results)
+      results.eql?(other.send(:results))
+    end
+
+  private
+
+    def results
+      @results ||= {}
     end
   end
 end
