@@ -13,6 +13,10 @@ class Keylayout
       keys.keys
     end
 
+    def code(result)
+      keys.key(result) || keys.detect{ |c, r| r.is_a?(Action) && r[nil] == result }.first
+    end
+
   private
 
     def keys
