@@ -13,8 +13,34 @@ class Keylayout
       keys.keys
     end
 
-    def code(result)
-      keys.key(result) || keys.detect{ |c, r| r.is_a?(Action) && r[nil] == result }.first
+    def actions
+      keys.values.grep(Action)
+    end
+
+    def outputs
+      keys.values.grep(String)
+    end
+
+    def code(output)
+      keys.key(output) || keys.detect{ |code, result| result.is_a?(Action) && result[nil] == output }.first
+    end
+
+    def output(code)
+      result = self[code]
+      result.is_a?(Action) ? result[nil] : result
+    end
+
+    def set_key_or_action_output(code, output)
+      case self[code]
+      when Action
+        self[code][nil] = output
+      else
+        self[code] = output
+      end
+    end
+
+    def each_pair(&block)
+      keys.each(&block)
     end
 
   private

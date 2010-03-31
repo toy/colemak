@@ -1,5 +1,5 @@
 require 'toy/std/pathname'
-require 'pp'
+require 'shellwords'
 
 require 'nokogiri'
 
@@ -13,12 +13,6 @@ require 'keylayout/key_map'
 require 'keylayout/counter'
 
 require 'keylayout/builder'
-
-class Object
-  def duplicate
-    Marshal.load(Marshal.dump(self))
-  end
-end
 
 class Keylayout
   attr_accessor :group, :id, :name
@@ -62,7 +56,6 @@ class Keylayout
             end
           end
         end
-        @actions = actions.values # todo: delete
 
         n_keyboard.xpath('./terminators/when').each do |n_when|
           node_state(n_when).terminator = node_output(n_when)
@@ -106,8 +99,15 @@ class Keylayout
     @key_maps ||= []
   end
 
+  def key_map_by_modifier(*pressed)
+    key_maps.find{ |key_map| key_map.modifiers.any?{ |modifier| modifier.match?(*pressed) } }
+  end
+
   def maxout
-    1
+    [
+      key_maps.map{ |key_map| [key_map.outputs, key_map.actions.map(&:outputs)] },
+      states.compact.map(&:terminator)
+    ].flatten.map(&:length).max
   end
 
   def to_xml
@@ -120,7 +120,13 @@ class Keylayout
     action_ids = Hash.new do |hash, action|
       hash[action] = a.next!
     end
-    @actions.each{ |action| action_ids[action] } # todo: delete
+
+    key_maps.map(&:actions).flatten.sort_by do |action|
+      state_id = state_ids[action[nil]]
+      state_id ? [0, state_id] : [1]
+    end.each do |action|
+      action_ids[action]
+    end
 
     Builder.new do |b|
       b << %{<?xml version="1.0" encoding="UTF-8"?>}
@@ -192,6 +198,7 @@ class Keylayout
 
   def write(path)
     Pathname(path).write(to_xml)
+    abort unless system(['klcompiler', path].shelljoin + ' > /dev/null')
   end
 
 private

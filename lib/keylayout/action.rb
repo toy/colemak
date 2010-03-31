@@ -1,5 +1,11 @@
 class Keylayout
   class Action
+    def dup
+      new = super
+      @results = @results.dup
+      new
+    end
+
     def [](state)
       results[state]
     end
@@ -10,6 +16,10 @@ class Keylayout
 
     def states
       results.keys
+    end
+
+    def outputs
+      results.values.grep(String)
     end
 
     def hash
