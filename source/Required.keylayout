@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard PUBLIC "" "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">
+<keyboard group="0" id="5005" name="Required" maxout="1">
+	<layouts>
+		<layout first="0" last="0" modifiers="48" mapSet="312"/>
+	</layouts>
+	<modifierMap id="48" defaultIndex="0">
+		<keyMapSelect mapIndex="0">
+			<modifier keys=""/>
+		</keyMapSelect>
+	</modifierMap>
+	<keyMapSet id="312">
+		<keyMap index="0">
+			<key code="0" output=""/>
+			<key code="36" output="&#x0D;"/>
+			<key code="48" output="&#x09;"/>
+			<key code="51" output="&#x08;"/>
+			<key code="53" output="&#x1B;"/>
+			<key code="64" output="&#x10;"/>
+			<key code="66" output="&#x1D;"/>
+			<key code="70" output="&#x1C;"/>
+			<key code="71" output="&#x1B;"/>
+			<key code="72" output="&#x1F;"/>
+			<key code="76" output="&#x03;"/>
+			<key code="77" output="&#x1E;"/>
+			<key code="79" output="&#x10;"/>
+			<key code="80" output="&#x10;"/>
+			<key code="96" output="&#x10;"/>
+			<key code="97" output="&#x10;"/>
+			<key code="98" output="&#x10;"/>
+			<key code="99" output="&#x10;"/>
+			<key code="100" output="&#x10;"/>
+			<key code="101" output="&#x10;"/>
+			<key code="103" output="&#x10;"/>
+			<key code="105" output="&#x10;"/>
+			<key code="106" output="&#x10;"/>
+			<key code="107" output="&#x10;"/>
+			<key code="109" output="&#x10;"/>
+			<key code="111" output="&#x10;"/>
+			<key code="113" output="&#x10;"/>
+			<key code="114" output="&#x05;"/>
+			<key code="115" output="&#x01;"/>
+			<key code="116" output="&#x0B;"/>
+			<key code="117" output="&#x7F;"/>
+			<key code="118" output="&#x10;"/>
+			<key code="119" output="&#x04;"/>
+			<key code="120" output="&#x10;"/>
+			<key code="121" output="&#x0C;"/>
+			<key code="122" output="&#x10;"/>
+			<key code="123" output="&#x1C;"/>
+			<key code="124" output="&#x1D;"/>
+			<key code="125" output="&#x1F;"/>
+			<key code="126" output="&#x1E;"/>
+		</keyMap>
+	</keyMapSet>
+</keyboard>
