@@ -1,5 +1,3 @@
-require 'hpricot'
-
 class Keylayout
   module Entities
     HTML_ESCAPE = {} # {'&'=>'&amp;', '>'=>'&gt;', '<'=>'&lt;', '"'=>'&quot;'}
