@@ -77,6 +77,10 @@ task :build do
     kl.key_map_by_modifier()[code] = ','
     kl.key_map_by_modifier(:caps)[code] = ','
     kl.key_map_by_modifier(:anyShift)[code] = '.'
+
+    code = base_key_map.code('§')
+    kl.key_map_by_modifier(:anyOption)[code] = 'ё'
+    kl.key_map_by_modifier(:anyOption, :anyShift)[code] = 'Ё'
   end
 
   kl.group = 7
