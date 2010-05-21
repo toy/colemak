@@ -81,6 +81,7 @@ task :build do
     code = base_key_map.code('§')
     kl.key_map_by_modifier(:anyOption)[code] = 'ё'
     kl.key_map_by_modifier(:anyOption, :anyShift)[code] = 'Ё'
+    kl.key_map_by_modifier(:anyOption, :caps)[code] = 'Ё'
   end
 
   kl.group = 7
