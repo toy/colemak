@@ -45,7 +45,8 @@ task :build do
         ',' => '⌘',
         '.' => '…',
         '\\' => '',
-        '/' => '⎋'
+        '/' => '⎋',
+        '§' => '✓',
       }.each do |output, alt_shift_output|
         code = base_key_map.code(output)
         dst_key_map[code] = alt_shift_output
