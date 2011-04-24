@@ -4,7 +4,7 @@ task :default => :build
 
 desc "Build bundle"
 task :build do
-  require 'lib/keylayout'
+  require './lib/keylayout'
 
   bundle = Pathname('Colemak.bundle')
   contents = bundle + 'Contents'
