@@ -64,6 +64,14 @@ task :build do
 
 
   kl.key_map_by_modifier().tap do |base_key_map|
+    %w[; [ ] ' \\].each do |output|
+      code = base_key_map.code(output)
+      shiftOutput = kl.key_map_by_modifier(:anyShift)[code]
+      kl.key_map_by_modifier(:anyOption)[code] = output
+      kl.key_map_by_modifier(:anyOption, :anyShift)[code] = shiftOutput
+      kl.key_map_by_modifier(:anyOption, :caps)[code] = output
+    end
+
     codes = %w[
       q w f p g j l u y ; [ ]
       a r s t d h n e i o '
