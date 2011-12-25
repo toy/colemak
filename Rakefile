@@ -40,13 +40,13 @@ task :build do
     kl.key_map_by_modifier(:anyOption, :anyShift).tap do |dst_key_map|
       {
         'x' => '×',
-        'b' => '⇧',
-        'k' => '⌃',
-        'm' => '⌥',
-        ',' => '⌘',
-        '.' => '…',
-        '\\' => '',
-        '/' => '⎋',
+        'v' => '⇧',
+        'b' => '⌃',
+        'k' => '⌥',
+        'm' => '⌘',
+        ',' => '…',
+        '.' => '⎋',
+        '/' => '',
         '§' => '✗',
       }.each do |output, alt_shift_output|
         code = base_key_map.code(output)
