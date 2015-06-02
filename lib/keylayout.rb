@@ -1,4 +1,3 @@
-require 'toy/std/pathname'
 require 'shellwords'
 
 require 'nokogiri'
@@ -13,6 +12,12 @@ require 'keylayout/key_map'
 require 'keylayout/counter'
 
 require 'keylayout/builder'
+
+class Pathname
+  def write(data)
+    open('w'){ |f| f.write(data) }
+  end
+end
 
 class Keylayout
   attr_accessor :group, :id, :name
@@ -199,7 +204,7 @@ class Keylayout
   def write(path)
     $stderr.puts "create #{path}"
     Pathname(path).write(to_xml)
-    abort unless system(['klcompiler', path].shelljoin + ' > /dev/null')
+    abort unless system(%W[klcompiler #{path}].shelljoin + ' > /dev/null')
   end
 
 private
