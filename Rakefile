@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+exec 'rake' if $0 == __FILE__
+
 task :default => :build
 
 desc "Build bundle"
