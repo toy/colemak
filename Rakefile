@@ -55,6 +55,16 @@ task :build do
         dst_key_map[code] = alt_shift_output
       end
     end
+
+    [
+      %w[a ä Ä],
+      %w[o ö Ö],
+      %w[u ü Ü],
+    ].each do |base, small, capital|
+      code = base_key_map.code(base)
+      kl.key_map_by_modifier(:anyOption)[code] = small
+      kl.key_map_by_modifier(:anyOption, :anyShift)[code] = capital
+    end
   end
 
   kl.group = 0
