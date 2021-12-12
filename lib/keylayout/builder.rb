@@ -1,5 +1,5 @@
 if {1 => 1, 2 => 2}.to_s == {2 => 2, 1 => 1}.to_s
-  abort "Need ruby version remembering hash order"
+  abort 'Need ruby version remembering hash order'
 end
 
 class Keylayout

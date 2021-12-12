@@ -69,7 +69,7 @@ task :build do
 
   kl.group = 0
   kl.id = 5005
-  kl.name = "Colemak"
+  kl.name = 'Colemak'
 
   # english version ready
   kl.write(resources + 'Colemak.keylayout')
@@ -108,7 +108,7 @@ task :build do
 
   kl.group = 7
   kl.id = 19666
-  kl.name = "Russian Colemak"
+  kl.name = 'Russian Colemak'
 
   # russian version ready
   kl.write(resources + 'Russian Colemak.keylayout')
