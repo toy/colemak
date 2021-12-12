@@ -4,8 +4,12 @@ exec 'rake' if $0 == __FILE__
 
 task :default => :build
 
-desc "Build bundle"
-task :build do
+rule '.icns' => proc{ |tn| tn.sub(/\.icns$/, '.iconset/icon_16x16.png') } do |t|
+  sh *%W[iconutil --convert icns --output #{t.name} #{File.dirname(t.source)}]
+end
+
+desc 'Build bundle'
+task build: ['source/icons/Colemak.icns', 'source/icons/Russian Colemak.icns'] do
   require './lib/keylayout'
 
   bundle = Pathname('Colemak.bundle')
