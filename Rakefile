@@ -41,7 +41,6 @@ task :build do
     kl.key_map_by_modifier(:anyOption)[base_key_map.code('§')] = '✓'
     kl.key_map_by_modifier(:anyOption, :anyShift).tap do |dst_key_map|
       {
-        'x' => '×',
         'v' => '⇧',
         'b' => '⌃',
         'k' => '⌥',
