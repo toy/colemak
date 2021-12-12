@@ -127,8 +127,12 @@ class Keylayout
     end
 
     key_maps.map(&:actions).flatten.sort_by do |action|
-      state_id = state_ids[action[nil]]
-      state_id ? [0, state_id] : [1]
+      default = action[nil]
+      if state_id = state_ids[default]
+        [0, state_id]
+      else
+        [1, default]
+      end
     end.each do |action|
       action_ids[action]
     end
