@@ -204,7 +204,6 @@ class Keylayout
   def write(path)
     $stderr.puts "create #{path}"
     Pathname(path).write(to_xml)
-    abort unless system(%W[klcompiler #{path}].shelljoin + ' > /dev/null')
   end
 
 private
