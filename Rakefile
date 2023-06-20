@@ -2,34 +2,42 @@
 
 exec 'rake' if $0 == __FILE__
 
+$LOAD_PATH << 'lib'
+
+require 'pathname'
+require 'keylayout'
+
 task :default => :build
+
+rule '.iconset/icon_16x16.png' => proc{ |tn| tn.sub(/\.iconset\/icon_16x16\.png$/, '.png') } do |t|
+  iconset = Pathname(t.name).dirname
+  rm_r iconset if iconset.exist?
+  mkpath iconset
+  cp t.source, t.name
+end
 
 rule '.icns' => proc{ |tn| tn.sub(/\.icns$/, '.iconset/icon_16x16.png') } do |t|
   sh *%W[iconutil --convert icns --output #{t.name} #{File.dirname(t.source)}]
 end
 
-desc 'Build bundle'
-task build: ['source/icons/Colemak.icns', 'source/icons/Russian Colemak.icns'] do
-  require './lib/keylayout'
-
-  bundle = Pathname('Colemak.bundle')
+file 'Cölemak.bundle' => %w[icons/en.icns icons/ru.icns] do |t|
+  bundle = Pathname(t.name)
   contents = bundle + 'Contents'
   resources = contents + 'Resources'
   lproj = resources + 'English.lproj'
 
-  rm_r bundle rescue nil
+  rm_r bundle if bundle.exist?
   mkpath lproj
 
-  cp 'source/bundle/Info.plist', contents
-  cp 'source/bundle/version.plist', resources
-  cp 'source/bundle/InfoPlist.strings', lproj
-  cp 'source/icons/Colemak.icns', resources
-  cp 'source/icons/Russian Colemak.icns', resources
+  cp 'resources/Info.plist', contents
+  cp 'resources/version.plist', resources
+  cp 'resources/InfoPlist.strings', lproj
+  cp 'icons/en.icns', resources + 'Cölemak.icns'
+  cp 'icons/ru.icns', resources + 'Cölemak ru.icns'
 
-
-  kl = Keylayout.read('source/Colemak.keylayout')
-  required = Keylayout.read('source/Required.keylayout')
-  russian = Keylayout.read('source/Russian excerpt.keylayout')
+  kl = Keylayout.read('keylayouts/colemak.keylayout')
+  required = Keylayout.read('keylayouts/required.keylayout')
+  russian = Keylayout.read('keylayouts/ru excerpt.keylayout')
 
   # adding required key outputs
   required.key_maps[0].tap do |required_key_map|
@@ -72,11 +80,10 @@ task build: ['source/icons/Colemak.icns', 'source/icons/Russian Colemak.icns'] d
 
   kl.group = 0
   kl.id = 5005
-  kl.name = 'Colemak'
+  kl.name = 'Cölemak'
 
   # english version ready
-  kl.write(resources + 'Colemak.keylayout')
-
+  kl.write(resources + 'Cölemak.keylayout')
 
   kl.key_map_by_modifier().tap do |base_key_map|
     %w[; [ ] ' \\].each do |output|
@@ -111,8 +118,16 @@ task build: ['source/icons/Colemak.icns', 'source/icons/Russian Colemak.icns'] d
 
   kl.group = 7
   kl.id = 19666
-  kl.name = 'Russian Colemak'
+  kl.name = 'Cölemak ru'
 
   # russian version ready
-  kl.write(resources + 'Russian Colemak.keylayout')
+  kl.write(resources + 'Cölemak ru.keylayout')
+end
+
+desc 'Build bundle'
+task build: 'Cölemak.bundle'
+
+desc 'Remove products'
+task :clean do
+  rm_r 'Cölemak.bundle', force: true
 end

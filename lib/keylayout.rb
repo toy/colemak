@@ -2,7 +2,6 @@ require 'shellwords'
 
 require 'nokogiri'
 
-$: << File.dirname(__FILE__)
 require 'keylayout/entities'
 
 require 'keylayout/modifier'

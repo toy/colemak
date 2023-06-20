@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Colemak and Colemak Russian keyboard layouts</string>
+	<string>Colemak and Colemak ru keyboard layouts</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.apple.keyboardlayout.colemak</string>
 	<key>CFBundleInfoDictionaryVersion</key>
