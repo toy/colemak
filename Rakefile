@@ -9,12 +9,15 @@ require 'keylayout'
 
 task :default => :build
 
-rule '.icns' => ['.light.16x16@2x.png', '.dark.16x16@2x.png'] do |t|
-  sh *%W[python -m icnsutil c #{t.name}.tmp #{t.sources[0]}]
-  sh *%W[python -m icnsutil c #{t.name}.dark #{t.sources[1]}]
-  sh *%W[python -m icnsutil u #{t.name}.tmp -set dark=#{t.name}.dark]
-  rm "#{t.name}.dark"
-  mv "#{t.name}.tmp", t.name
+rule '.iconset/icon_16x16.png' => proc{ |tn| tn.sub(/\.iconset\/icon_16x16\.png$/, '.png') } do |t|
+  iconset = Pathname(t.name).dirname
+  rm_r iconset if iconset.exist?
+  mkpath iconset
+  cp t.source, t.name
+end
+
+rule '.icns' => proc{ |tn| tn.sub(/\.icns$/, '.iconset/icon_16x16.png') } do |t|
+  sh *%W[iconutil --convert icns --output #{t.name} #{File.dirname(t.source)}]
 end
 
 file 'Cölemak.bundle' => %w[icons/en.icns icons/ru.icns] do |t|

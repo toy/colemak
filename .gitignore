@@ -1,4 +1,3 @@
 /*.bundle/
 /icons/*.icns
-/icons/*.icns.dark
-/icons/*.icns.tmp
+/icons/*.iconset/
