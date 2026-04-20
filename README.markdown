@@ -1,6 +1,6 @@
-# Colemak + Russian Colemak keyboard layouts
+# Cölemak + Cölemak ru keyboard layouts
 
-Colemak layout with some changes/additions and Russian layout combined with Colemak.
+Cölemak layout with some changes/additions and Cölemak combined with russian layout (Cölemak when pressing ⌘).
 
 ## Build
 
@@ -8,10 +8,6 @@ Colemak layout with some changes/additions and Russian layout combined with Cole
 
 ## Install
 
-`sudo chown -R root:wheel 'Cölemak.bundle' && sudo mv Cölemak.bundle '/Library/Keyboard Layouts'`
-
-## Use same keyboard layout during login screen
-
 ```shell
-sudo cp {~,}/Library/Preferences/com.apple.HIToolbox.plist && sudo chown root:wheel /Library/Preferences/com.apple.HIToolbox.plist
+sudo cp -R Cölemak.bundle '/Library/Keyboard Layouts'
 ```
