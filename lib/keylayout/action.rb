@@ -1,39 +1,24 @@
+require_relative 'base'
+require_relative 'state'
+
 class Keylayout
-  class Action
-    def dup
-      new = super
-      @results = @results.dup
-      new
+  class Action < Base
+    include Enumerable
+
+    def initialize(...)
+      super
+      @results = {}
     end
 
-    def [](state)
-      results[state]
+    def add(state:, result:)
+      assert_type state, State
+      assert_type result, String, State
+
+      @results[state] = result
     end
 
-    def []=(state, result)
-      results[state] = result
-    end
+    def default = @results.find{ |state, _| state.id == 'none' }&.last
 
-    def states
-      results.keys
-    end
-
-    def outputs
-      results.values.grep(String)
-    end
-
-    def hash
-      results.hash
-    end
-
-    def eql?(other)
-      results.eql?(other.send(:results))
-    end
-
-  private
-
-    def results
-      @results ||= {}
-    end
+    def each(&block) = @results.each(&block)
   end
 end

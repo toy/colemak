@@ -20,7 +20,7 @@ rule '.icns' => proc{ |tn| tn.sub(/\.icns$/, '.iconset/icon_16x16.png') } do |t|
   sh *%W[iconutil --convert icns --output #{t.name} #{File.dirname(t.source)}]
 end
 
-file 'Cölemak.bundle' => %w[icons/en.icns icons/ru.icns] do |t|
+file 'Cölemak.bundle' => %w[Rakefile icons/en.icns icons/ru.icns] + Dir['{**/*.rb,{keylayouts,resources}/*.*}'] do |t|
   bundle = Pathname(t.name)
   contents = bundle + 'Contents'
   resources = contents + 'Resources'
@@ -35,63 +35,94 @@ file 'Cölemak.bundle' => %w[icons/en.icns icons/ru.icns] do |t|
   cp 'icons/en.icns', resources + 'Cölemak.icns'
   cp 'icons/ru.icns', resources + 'Cölemak ru.icns'
 
-  kl = Keylayout.read('keylayouts/colemak.keylayout')
-  required = Keylayout.read('keylayouts/required.keylayout')
-  russian = Keylayout.read('keylayouts/ru excerpt.keylayout')
+  kl = Keylayout.read('keylayouts/colemak-apple.keylayout')
+  ru = Keylayout.read('keylayouts/ru.keylayout')
 
-  # adding required key outputs
-  required.key_maps[0].tap do |required_key_map|
-    kl.key_maps.each do |key_map|
-      required_key_map.each_pair do |code, result|
-        key_map[code] ||= result
-      end
-    end
+  # keep only one layout
+  layout = kl.layout(0)
+  kl.layouts = [layout]
+
+  # there is no caps in Colemak
+  layout.modifier_map.each do |_, keys_list|
+    keys_list
+      .each{ |keys| keys.delete('caps?') }
+      .delete_if{ |keys| keys.include?('caps') }
   end
+  layout.modifier_map.compact!
 
-  # my additions
-  kl.key_map_by_modifier().tap do |base_key_map|
-    kl.key_map_by_modifier(:anyOption)[base_key_map.code('§')] = '✓'
-    kl.key_map_by_modifier(:anyOption, :anyShift).tap do |dst_key_map|
-      {
-        'v' => '⇧',
-        'b' => '⌃',
-        'k' => '⌥',
-        'm' => '⌘',
-        ',' => '⎋',
-        '.' => '…',
-        '/' => '',
-        '§' => '✗',
-      }.each do |output, alt_shift_output|
-        code = base_key_map.code(output)
-        dst_key_map[code] = alt_shift_output
-      end
+  # additions
+  layout.key_map_for([]).tap do |base_key_map|
+    alt_key_map = layout.key_map_for(%w[option])
+    alt_shift_key_map = layout.key_map_for(%w[option shift])
+
+    [
+      %w[1 ¹],
+      %w[2 ²],
+      %w[3 ³],
+      %w[8 ×],
+    ].each do |base, output|
+      alt_key_map[base_key_map.code(base)] = output
+    end
+
+    [
+      %w[v ⇧],
+      %w[b ⌃],
+      %w[k ⌥],
+      %w[m ⌘],
+      %w[, ⎋],
+      %w[. …],
+      %w[/ ],
+    ].each do |base, output|
+      alt_shift_key_map[base_key_map.code(base)] = output
     end
 
     [
       %w[a ä Ä],
       %w[o ö Ö],
       %w[u ü Ü],
+      %w[i ï Ï],
+      %w[§ ✓ ✗],
+      %w[4 € £],
+      %w[5 ¢ ¥],
+      %w{[ « ‹},
+      %w{] » ›},
+      %w[\\ \\ |],
     ].each do |base, small, capital|
       code = base_key_map.code(base)
-      kl.key_map_by_modifier(:anyOption)[code] = small
-      kl.key_map_by_modifier(:anyOption, :anyShift)[code] = capital
+      alt_key_map[code] = small
+      alt_shift_key_map[code] = capital
     end
   end
 
   kl.group = 0
-  kl.id = 5005
+  kl.id = 1
   kl.name = 'Cölemak'
+  (resources + 'Cölemak.keylayout').write(kl.to_xml)
 
-  # english version ready
-  kl.write(resources + 'Cölemak.keylayout')
+  # separate base empty from command set
+  layout.modifier_map.add(Keylayout::Index.new(id: -1), [])
+  layout.modifier_map.each do |_, keys_list|
+    keys_list.delete_if{ |keys| keys == Set['command?'] }
+  end
 
-  kl.key_map_by_modifier().tap do |base_key_map|
-    %w[; [ ] ' \\].each do |output|
+  # fixes and additions
+  layout.key_map_for([]).tap do |base_key_map|
+    layout.key_map_for(%w[command]).each do |code, result|
+      base_key_map[code] = result
+    end
+
+    alt_key_map = layout.key_map_for(%w[option])
+    alt_shift_key_map = layout.key_map_for(%w[option shift])
+    shift_key_map = layout.key_map_for(%w[shift])
+
+    ru_layout = ru.layout(0)
+    ru_base_key_map = ru_layout.key_map_for([])
+    ru_shift_key_map = ru_layout.key_map_for(%w[shift])
+
+    %w[; [ ] ' /].each do |output|
       code = base_key_map.code(output)
-      shiftOutput = kl.key_map_by_modifier(:anyShift)[code]
-      kl.key_map_by_modifier(:anyOption)[code] = output
-      kl.key_map_by_modifier(:anyOption, :anyShift)[code] = shiftOutput
-      kl.key_map_by_modifier(:anyOption, :caps)[code] = output
+      alt_key_map[code] = output
+      alt_shift_key_map[code] = shift_key_map[code]
     end
 
     codes = %w[
@@ -99,29 +130,29 @@ file 'Cölemak.bundle' => %w[icons/en.icns icons/ru.icns] do |t|
       a r s t d h n e i o '
       z x c v b k m , .
     ].map{ |output| base_key_map.code(output) }
-    russian.key_maps.zip(kl.key_maps).each do |russian_key_map, key_map|
+
+    {
+      ru_base_key_map => base_key_map,
+      ru_shift_key_map => shift_key_map,
+    }.each do |from, to|
       codes.each do |code|
-        key_map.set_key_or_action_output(code, russian_key_map[code])
+        to[code] = from[code]
       end
     end
 
-    code = base_key_map.code('\\')
-    kl.key_map_by_modifier()[code] = ','
-    kl.key_map_by_modifier(:caps)[code] = ','
-    kl.key_map_by_modifier(:anyShift)[code] = '.'
+    code = base_key_map.code('/')
+    base_key_map[code] = ','
+    shift_key_map[code] = '.'
 
     code = base_key_map.code('§')
-    kl.key_map_by_modifier(:anyOption)[code] = 'ё'
-    kl.key_map_by_modifier(:anyOption, :anyShift)[code] = 'Ё'
-    kl.key_map_by_modifier(:anyOption, :caps)[code] = 'Ё'
+    alt_key_map[code] = 'ё'
+    alt_shift_key_map[code] = 'Ё'
   end
 
   kl.group = 7
-  kl.id = 19666
+  kl.id = 2
   kl.name = 'Cölemak ru'
-
-  # russian version ready
-  kl.write(resources + 'Cölemak ru.keylayout')
+  (resources + 'Cölemak ru.keylayout').write(kl.to_xml)
 end
 
 desc 'Build bundle'

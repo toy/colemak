@@ -1,52 +1,51 @@
+require_relative 'assert_type'
+require_relative 'action'
+require_relative 'index'
+require_relative 'key_map_set'
+
 class Keylayout
   class KeyMap
-    attr_accessor :modifiers
-    def [](code)
-      keys[code]
+    include AssertType
+    include Enumerable
+
+    attr_reader :base_map_set, :base_index
+
+    def initialize
+      @map = {}
     end
+
+    def base(base_map_set:, base_index:)
+      assert_type base_map_set, KeyMapSet
+      assert_type base_index, Index
+
+      @base_map_set = base_map_set
+      @base_index = base_index
+    end
+
+    def base_key_map = @base_map_set&.key_map(index: @base_index)
+
+    def codes = @map.keys
+
+    def [](code) = @map[code]
 
     def []=(code, result)
-      keys[code.to_i] = result
+      assert_type code, Integer
+      assert_type result, String, Action
+
+      @map[code] = result
     end
 
-    def codes
-      keys.keys
-    end
+    def each(&block) = @map.each(&block)
 
-    def actions
-      keys.values.grep(Action)
-    end
-
-    def outputs
-      keys.values.grep(String)
-    end
-
-    def code(output)
-      keys.key(output) || keys.detect{ |code, result| result.is_a?(Action) && result[nil] == output }.first
-    end
-
-    def output(code)
-      result = self[code]
-      result.is_a?(Action) ? result[nil] : result
-    end
-
-    def set_key_or_action_output(code, output)
-      case self[code]
-      when Action
-        self[code][nil] = output
-      else
-        self[code] = output
+    def code(result)
+      codes.find do |code|
+        case @map[code]
+        when String
+          @map[code] == result
+        when Action
+          @map[code].default == result
+        end
       end
-    end
-
-    def each_pair(&block)
-      keys.each(&block)
-    end
-
-  private
-
-    def keys
-      @keys ||= {}
     end
   end
 end

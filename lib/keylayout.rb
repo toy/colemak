@@ -1,221 +1,305 @@
-require 'shellwords'
-
 require 'nokogiri'
 
-require 'keylayout/entities'
+require_relative 'keylayout/assert_type'
+require_relative 'keylayout/base'
 
-require 'keylayout/modifier'
-require 'keylayout/action'
-require 'keylayout/state'
-require 'keylayout/key_map'
-require 'keylayout/counter'
+require_relative 'keylayout/action'
+require_relative 'keylayout/index'
+require_relative 'keylayout/key_map'
+require_relative 'keylayout/key_map_set'
+require_relative 'keylayout/layout'
+require_relative 'keylayout/modifier_map'
+require_relative 'keylayout/state'
 
-require 'keylayout/builder'
-
-class Pathname
-  def write(data)
-    open('w'){ |f| f.write(data) }
-  end
-end
-
+# https://developer.apple.com/library/archive/technotes/tn2056/_index.html
 class Keylayout
+  include AssertType
+
+  CHAR_ENTITIES = {
+    amp: ?&,
+    lt: ?<,
+    gt: ?>,
+    quot: ?",
+    apos: ?',
+  }
+  CHAR_TO_NUM_ENTITIES = CHAR_ENTITIES.to_h{ |name, c| ["&#{name};", "&##{c.ord};"] }
+  XML_ENTITIES_REGEXP = /&(#{CHAR_ENTITIES.keys.join('|')});/
+
+  class << self
+    using(Module.new do
+      refine Nokogiri::XML::Node do
+        def fetch(attribute_name)
+          self[attribute_name] ||
+            fail("expected #{attribute_name} attribute to be present in <#{name}#{attribute_nodes.map(&:to_xml).join}>")
+        end
+      end
+    end)
+
+    def read(path)
+      parse(File.read(path))
+    end
+
+    def parse(data)
+      root = Nokogiri::XML(data).at('./keyboard')
+
+      actions = Action.by_id
+      indexes = Index.by_id
+      key_map_sets = KeyMapSet.by_id
+      modifier_maps = ModifierMap.by_id
+      states = State.by_id
+
+      layouts = root.search('./layouts/layout').map do |layout_node|
+        Layout.new(
+          first: Integer(layout_node.fetch(:first)),
+          last: Integer(layout_node.fetch(:last)),
+          modifier_map: modifier_maps[layout_node.fetch(:modifiers)],
+          key_map_set: key_map_sets[layout_node.fetch(:mapSet)]
+        )
+      end
+
+      root.search('./modifierMap').each do |modifier_map_node|
+        modifier_map = modifier_maps[modifier_map_node.fetch(:id)]
+
+        modifier_map.default_index = indexes[modifier_map_node.fetch(:defaultIndex)]
+
+        modifier_map_node.search('./keyMapSelect').each do |key_map_select_node|
+          index = indexes[key_map_select_node.fetch(:mapIndex)]
+
+          key_map_select_node.search('./modifier').each do |modifier_node|
+            modifier_map.add(index, modifier_node.fetch(:keys).split(/\s+/))
+          end
+        end
+      end
+
+      root.search('./keyMapSet').each do |key_map_set_node|
+        key_map_set = key_map_sets[key_map_set_node.fetch(:id)]
+
+        key_map_set_node.search('./keyMap').each do |key_map_node|
+          index = indexes[key_map_node.fetch(:index)]
+
+          key_map = key_map_set.key_map(index:)
+
+          if (base_map_set_id = key_map_node[:baseMapSet])
+            base_map_set = key_map_sets[base_map_set_id]
+            base_index = indexes[key_map_node.fetch(:baseIndex)]
+            key_map.base(base_map_set:, base_index:)
+          end
+
+          key_map_node.search('./key').each do |key_node|
+            code = Integer(key_node.fetch(:code))
+
+            if (output = key_node[:output])
+              key_map[code] = output
+            elsif (action_id = key_node[:action])
+              key_map[code] = actions[action_id]
+            else
+              fail "unsupported case #{key_node}"
+            end
+          end
+        end
+      end
+
+      root.search('./actions/action').each do |action_node|
+        action = actions[action_node.fetch(:id)]
+        action_node.search('./when').each do |when_node|
+          state = states[when_node.fetch(:state)]
+
+          if (output = when_node[:output])
+            extra = when_node.attributes.except('state', 'output')
+            fail "not handled attributes: #{extra.keys.join(', ')}" unless extra.empty?
+
+            action.add(state:, result: output)
+          else
+            extra = when_node.attributes.except('state', 'next')
+            fail "not handled attributes: #{extra.keys.join(', ')}" unless extra.empty?
+
+            action.add(state:, result: states[when_node.fetch(:next)])
+          end
+        end
+      end
+
+      root.search('./terminators/when').each do |when_node|
+        extra = when_node.attributes.except('state', 'output')
+        fail "not handled attributes: #{extra.keys.join(', ')}" unless extra.empty?
+
+        state = states[when_node.fetch(:state)]
+        state.terminator_output = when_node.fetch(:output)
+      end
+
+      new(
+        group: root[:group],
+        id: root[:id],
+        name: root[:name],
+        layouts:
+      )
+    end
+  end
+
   attr_accessor :group, :id, :name
-  attr_reader :layout_first, :layout_last, :modifiers_id, :map_set_id, :default_index
-  def initialize(data)
-    Nokogiri::XML(preserve(data)).tap do |doc|
-      doc.at_xpath('//keyboard').tap do |n_keyboard|
-        @group = n_keyboard['group']
-        @id = n_keyboard['id']
-        @name = n_keyboard['name']
 
-        n_keyboard.at_xpath('./layouts/layout').tap do |n_layout|
-          @layout_first = n_layout['first']
-          @layout_last = n_layout['last']
-          @modifiers_id = n_layout['modifiers']
-          @map_set_id = n_layout['mapSet']
-        end
+  attr_reader :layouts
 
-        modifiers = {}
-        n_keyboard.xpath('./modifierMap').each do |n_modifier_map|
-          @default_index = n_modifier_map['defaultIndex']
-          n_modifier_map.xpath('./keyMapSelect').each do |n_key_map_select|
-            modifiers[n_key_map_select['mapIndex']] = n_key_map_select.xpath('modifier').map do |n_modifier|
-              Modifier.new(n_modifier['keys'])
-            end
+  def initialize(
+    group:,
+    id:,
+    name:,
+    layouts:
+  )
+    @group = group
+    @id = id
+    @name = name
+    @layouts = layouts
+  end
+
+  def layout(hardware_id)
+    layouts.find{ |layout| layout.hardware_ids_range.cover?(hardware_id) }
+  end
+
+  def layouts=(layouts)
+    assert_type layouts, Array
+    layouts.each do |layout|
+      assert_type layout, Layout
+    end
+
+    @layouts = layouts
+  end
+
+  def modifier_maps = layouts.map(&:modifier_map).uniq
+
+  def key_map_sets = layouts.map(&:key_map_set).uniq
+
+  def to_xml(gap_comments: true, reset_ids: true)
+    outputs = Set.new
+
+    actions = Set.new
+    key_map_sets.each do |key_map_set|
+      key_map_set.each do |index, key_map|
+        key_map.each do |code, result|
+          case result
+          when Action then actions << result
+          when String then outputs << result
           end
-        end
-
-        actions = {}
-        n_keyboard.xpath('./actions/action').each do |n_action|
-          actions[n_action['id']] = Action.new.tap do |action|
-            n_action.xpath('./when').each do |n_when|
-              action[node_state(n_when)] = case
-              when n_when['next']
-                node_state(n_when, 'next')
-              when n_when['output']
-                node_output(n_when, 'output')
-              else
-                raise "Unknown action result: #{n_when.to_xml}"
-              end
-            end
-          end
-        end
-
-        n_keyboard.xpath('./terminators/when').each do |n_when|
-          node_state(n_when).terminator = node_output(n_when)
-        end
-
-        n_keyboard.xpath('./keyMapSet/keyMap').each do |n_key_map|
-          key_map = KeyMap.new.tap do |key_map|
-            n_key_map.xpath('./key').each do |n_key|
-              key_map[n_key['code']] = case
-              when n_key['action']
-                actions[n_key['action']].dup
-              when n_key['output']
-                node_output(n_key)
-              else
-                raise "Unknown key result: #{n_key.to_xml}"
-              end
-            end
-          end
-
-          key_map.modifiers = modifiers[n_key_map['index']]
-          key_maps << key_map
         end
       end
     end
-  end
 
-  def states
-    @states.values
-  end
-
-  def node_state(node, attr = 'state')
-    @states ||= State.states
-    @states[node[attr]]
-  end
-
-  def node_output(node, attr = 'output')
-    Entities.unescape(unpreserve(node[attr]))
-  end
-
-  def key_maps
-    @key_maps ||= []
-  end
-
-  def key_map_by_modifier(*pressed)
-    key_maps.find{ |key_map| key_map.modifiers.any?{ |modifier| modifier.match?(*pressed) } }
-  end
-
-  def maxout
-    [
-      key_maps.map{ |key_map| [key_map.outputs, key_map.actions.map(&:outputs)] },
-      states.compact.map(&:terminator)
-    ].flatten.map(&:length).max
-  end
-
-  def to_xml
-    s = Counter.new('s')
-    a = Counter.new('a')
-
-    state_ids = states.each_with_object({}) do |state, hash|
-      hash[state] = state ? s.next! : 'none'
-    end
-    action_ids = Hash.new do |hash, action|
-      hash[action] = a.next!
-    end
-
-    key_maps.map(&:actions).flatten.sort_by do |action|
-      default = action[nil]
-      if state_id = state_ids[default]
-        [0, state_id]
-      else
-        [1, default]
-      end
-    end.each do |action|
-      action_ids[action]
-    end
-
-    Builder.new do |b|
-      b << %{<?xml version="1.0" encoding="UTF-8"?>}
-      b << %{<!DOCTYPE keyboard SYSTEM "file://localhost/System/Library/DTDs/KeyboardLayout.dtd">}
-      b.keyboard group: group, id: id, name: name, maxout: maxout do
-        b.layouts do
-          b.layout first: layout_first, last: layout_last, modifiers: modifiers_id, mapSet: map_set_id
+    states = Set.new
+    actions.each do |action|
+      action.each do |state, result|
+        states << state
+        case result
+        when State then states << result
+        when String then outputs << result
         end
+      end
+    end
 
-        b.modifierMap id: modifiers_id, defaultIndex: default_index do
-          key_maps.each_with_index do |key_map, i|
-            b.keyMapSelect mapIndex: i do
-              key_map.modifiers.each do |modifier|
-                b.modifier keys: modifier.to_s
-              end
-            end
+    terminators = Set.new
+    states.each do |state|
+      terminators << state.terminator_output if state.terminator_output
+    end
+
+    # my best guess why maxout is 2 for apple colemak layout
+    maxout = max_length(outputs) + max_length(terminators)
+
+    indexes = Set.new
+    key_map_sets_to_modifier_maps = Hash.new{ |h, key| h[key] = [] }
+    layouts.each do |layout|
+      key_map_sets_to_modifier_maps[layout.key_map_set] << layout.modifier_map
+      indexes.merge(layout.modifier_map.indexes)
+    end
+
+    if reset_ids
+      indexes.each_with_index{ |index, i| index.id = i }
+      actions.sort.each_with_index{ |action, i| action.id = "a#{i}" }
+      states.reject{ |state| state.id == 'none' }.sort.each.with_index(1){ |state, i| state.id = i.to_s }
+    end
+
+    Nokogiri::XML::Builder.new(encoding: 'UTF-8') do |xml|
+      xml.doc.create_internal_subset('keyboard', nil, 'file://localhost/System/Library/DTDs/KeyboardLayout.dtd')
+
+      xml.keyboard group:, id:, name:, maxout: do
+        xml.layouts do
+          layouts.each do |layout|
+            xml.layout first: layout.first, last: layout.last, modifiers: layout.modifier_map, mapSet: layout.key_map_set
           end
         end
 
-        b.keyMapSet id: map_set_id do
-          key_maps.each_with_index do |key_map, i|
-            b.keyMap index: i do
-              key_map.codes.sort.each do |code|
-                case result = key_map[code]
-                when String
-                  b.key code: code, output: result
-                when Action
-                  b.key code: code, action: action_ids[result]
-                else
-                  raise "Unknown key result: #{result.inspect}"
+        modifier_maps.each do |modifier_map|
+          xml.modifierMap id: modifier_map, defaultIndex: modifier_map.default_index do
+            modifier_map.each do |index, keys_list|
+              xml.keyMapSelect mapIndex: index do
+                keys_list.each do |keys|
+                  xml.modifier keys: keys.join(' ')
                 end
               end
             end
           end
         end
 
-        b.actions do
-          action_ids.sort_by{ |action, id| id[/\d+/].to_i }.each do |action, id|
-            b.action :id => id do
-              action.states.each do |state|
-                case result = action[state]
-                when String
-                  b.when state: state_ids[state], output: result
-                when State
-                  b.when state: state_ids[state], next: state_ids[result]
-                else
-                  raise "Unknown action result: #{result.inspect}"
+        key_map_sets.each do |key_map_set|
+          required_indexes = key_map_sets_to_modifier_maps[key_map_set].map(&:indexes).inject(:|)
+
+          xml.keyMapSet id: key_map_set do
+            required_indexes.sort.each do |index|
+              key_map = key_map_set.key_map(index:)
+
+              attributes = {index: index}
+              if key_map.base_map_set
+                attributes[:baseMapSet] = key_map.base_map_set
+                attributes[:baseIndex] = key_map.base_index
+              end
+              xml.keyMap **attributes do
+                with_gaps(key_map.codes) do |gap, code|
+                  xml.comment " gap #{gap} " if gap_comments && gap
+
+                  result = key_map[code]
+                  case result
+                  when String then xml.key code:, output: result
+                  when Action then xml.key code:, action: result
+                  end
                 end
               end
             end
           end
         end
 
-        b.terminators do
-          state_ids.sort_by{ |state, id| id[/\d+/].to_i }.each do |state, id|
-            if state
-              b.when state: id, output: state.terminator
+        unless actions.empty?
+          xml.actions do
+            actions.sort.each do |action|
+              xml.action id: action do
+                action.each do |state, result|
+                  case result
+                  when String then xml.when state: state, output: result
+                  when State then xml.when state: state, next: result
+                  end
+                end
+              end
+            end
+          end
+        end
+
+        if states.any?(&:terminator_output)
+          xml.terminators do
+            states.sort.each do |state|
+              xml.when state: state, output: state.terminator_output if state.terminator_output
             end
           end
         end
       end
-    end.to_s
-  end
-
-
-  def self.read(path)
-    new(Pathname(path).read)
-  end
-
-  def write(path)
-    $stderr.puts "create #{path}"
-    Pathname(path).write(to_xml)
+    end.to_xml.gsub(XML_ENTITIES_REGEXP, CHAR_TO_NUM_ENTITIES)
   end
 
 private
 
-  def preserve(s)
-    s.gsub('&', '&amp;')
+  def max_length(strings)
+    strings.map(&:length).max || 0
   end
 
-  def unpreserve(s)
-    s.gsub('&amp;', '&')
+  def with_gaps(codes)
+    [-1, *codes.sort].each_cons(2) do |prev, code|
+      gap = prev + 1..code - 1
+      yield gap.size.zero? ? nil : gap.size == 1 ? gap.first : gap, code
+    end
   end
 end

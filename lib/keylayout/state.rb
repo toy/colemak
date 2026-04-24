@@ -1,13 +1,20 @@
-class Keylayout
-  class State
-    attr_accessor :terminator
+require_relative 'base'
 
-    def self.states
-      Hash.new do |states, key|
-        states[key] = State.new
-      end.tap do |states|
-        states['none'] = nil
-      end
+class Keylayout
+  class State < Base
+    attr_reader :terminator_output
+
+    def initialize(...)
+      super
+      @terminator_output = nil
     end
+
+    def terminator_output=(terminator_output)
+      assert_type terminator_output, String
+
+      @terminator_output = terminator_output
+    end
+
+    def inspect = terminator_output ? "<S:#{@id} [#{terminator_output}]>" : "<S:#{@id}>"
   end
 end
