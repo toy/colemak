@@ -88,21 +88,17 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
-			<!-- gap, 54-64 -->
 			<key code="65" action="a23" />
 			<key code="66" output="&#x1D;" />
 			<key code="67" output="*" />
-			<!-- gap, 68 -->
 			<key code="69" action="a25" />
 			<key code="70" output="&#x1C;" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" output="&#x1F;" />
-			<!-- gap, 73-74 -->
 			<key code="75" output="/" />
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
 			<key code="78" output="-" />
-			<!-- gap, 79-80 -->
 			<key code="81" action="a28" />
 			<key code="82" output="0" />
 			<key code="83" output="1" />
@@ -112,10 +108,8 @@
 			<key code="87" output="5" />
 			<key code="88" output="6" />
 			<key code="89" output="7" />
-			<!-- gap, 90 -->
 			<key code="91" output="8" />
 			<key code="92" output="9" />
-			<!-- gap, 93-94 -->
 			<key code="95" output="," />
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
@@ -204,21 +198,17 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
-			<!-- gap, 54-64 -->
 			<key code="65" action="a23" />
 			<key code="66" output="*" />
 			<key code="67" output="*" />
-			<!-- gap, 68 -->
 			<key code="69" action="a25" />
 			<key code="70" action="a25" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" action="a28" />
-			<!-- gap, 73-74 -->
 			<key code="75" output="/" />
 			<key code="76" output="&#x3;" />
 			<key code="77" output="/" />
 			<key code="78" output="-" />
-			<!-- gap, 79-80 -->
 			<key code="81" action="a28" />
 			<key code="82" output="0" />
 			<key code="83" output="1" />
@@ -228,10 +218,8 @@
 			<key code="87" output="5" />
 			<key code="88" output="6" />
 			<key code="89" output="7" />
-			<!-- gap, 90 -->
 			<key code="91" output="8" />
 			<key code="92" output="9" />
-			<!-- gap, 93-94 -->
 			<key code="95" output="," />
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
@@ -359,7 +347,6 @@
 			<key code="90" output="&#x0;" />
 			<key code="91" output="8" />
 			<key code="92" output="9" />
-			<!-- gap, 93-94 -->
 			<key code="95" output="," />
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
@@ -404,7 +391,6 @@
 			<key code="7" action="a13" />
 			<key code="8" action="a109" />
 			<key code="9" output="&#x153;" />
-			<!-- gap, 10 -->
 			<key code="11" action="a5" />
 			<key code="12" action="a144" />
 			<key code="13" action="a108" />
@@ -448,16 +434,12 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
-			<!-- gap, 54-65 -->
 			<key code="66" output="&#x1D;" />
-			<!-- gap, 67-69 -->
 			<key code="70" output="&#x1C;" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" output="&#x1F;" />
-			<!-- gap, 73-75 -->
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
-			<!-- gap, 78-95 -->
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
 			<key code="98" output="&#x10;" />
@@ -501,7 +483,6 @@
 			<key code="7" action="a15" />
 			<key code="8" action="a119" />
 			<key code="9" output="&#x152;" />
-			<!-- gap, 10 -->
 			<key code="11" action="a15" />
 			<key code="12" action="a151" />
 			<key code="13" action="a118" />
@@ -545,16 +526,12 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
-			<!-- gap, 54-65 -->
 			<key code="66" output="*" />
-			<!-- gap, 67-69 -->
 			<key code="70" action="a25" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" action="a28" />
-			<!-- gap, 73-75 -->
 			<key code="76" output="&#x3;" />
 			<key code="77" output="/" />
-			<!-- gap, 78-95 -->
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
 			<key code="98" output="&#x10;" />
@@ -598,7 +575,6 @@
 			<key code="7" action="a13" />
 			<key code="8" action="a119" />
 			<key code="9" output="&#x152;" />
-			<!-- gap, 10 -->
 			<key code="11" action="a5" />
 			<key code="12" action="a151" />
 			<key code="13" action="a118" />
@@ -642,16 +618,12 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
-			<!-- gap, 54-65 -->
 			<key code="66" output="&#x1D;" />
-			<!-- gap, 67-69 -->
 			<key code="70" output="&#x1C;" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" output="&#x1F;" />
-			<!-- gap, 73-75 -->
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
-			<!-- gap, 78-95 -->
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
 			<key code="98" output="&#x10;" />
@@ -739,21 +711,17 @@
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
-			<!-- gap, 54-64 -->
 			<key code="65" action="a23" />
 			<key code="66" output="&#x1D;" />
 			<key code="67" output="*" />
-			<!-- gap, 68 -->
 			<key code="69" action="a25" />
 			<key code="70" output="&#x1C;" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" output="&#x1F;" />
-			<!-- gap, 73-74 -->
 			<key code="75" output="/" />
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
 			<key code="78" output="-" />
-			<!-- gap, 79-80 -->
 			<key code="81" action="a28" />
 			<key code="82" output="0" />
 			<key code="83" output="1" />
@@ -763,10 +731,8 @@
 			<key code="87" output="5" />
 			<key code="88" output="6" />
 			<key code="89" output="7" />
-			<!-- gap, 90 -->
 			<key code="91" output="8" />
 			<key code="92" output="9" />
-			<!-- gap, 93-95 -->
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
 			<key code="98" output="&#x10;" />
@@ -810,7 +776,6 @@
 			<key code="7" output="&#x18;" />
 			<key code="8" output="&#x3;" />
 			<key code="9" output="&#x16;" />
-			<!-- gap, 10 -->
 			<key code="11" output="&#x2;" />
 			<key code="12" output="&#x11;" />
 			<key code="13" output="&#x17;" />
@@ -818,13 +783,9 @@
 			<key code="15" output="&#x10;" />
 			<key code="16" output="&#xA;" />
 			<key code="17" output="&#x7;" />
-			<!-- gap, 18 -->
 			<key code="19" output="&#x0;" />
-			<!-- gap, 20-21 -->
 			<key code="22" output="&#x1E;" />
-			<!-- gap, 23-26 -->
 			<key code="27" output="&#x1F;" />
-			<!-- gap, 28-29 -->
 			<key code="30" output="&#x1D;" />
 			<key code="31" output="&#x19;" />
 			<key code="32" output="&#xC;" />
@@ -834,30 +795,22 @@
 			<key code="36" output="&#xD;" />
 			<key code="37" output="&#x9;" />
 			<key code="38" output="&#xE;" />
-			<!-- gap, 39 -->
 			<key code="40" output="&#x5;" />
 			<key code="41" output="&#xF;" />
 			<key code="42" output="&#x1C;" />
-			<!-- gap, 43-44 -->
 			<key code="45" output="&#xB;" />
 			<key code="46" output="&#xD;" />
-			<!-- gap, 47 -->
 			<key code="48" output="&#x9;" />
 			<key code="49" output="&#x0;" />
-			<!-- gap, 50 -->
 			<key code="51" output="&#x8;" />
 			<key code="52" output="&#x3;" />
 			<key code="53" output="&#x1B;" />
-			<!-- gap, 54-65 -->
 			<key code="66" output="&#x1D;" />
-			<!-- gap, 67-69 -->
 			<key code="70" output="&#x1C;" />
 			<key code="71" output="&#x1B;" />
 			<key code="72" output="&#x1F;" />
-			<!-- gap, 73-75 -->
 			<key code="76" output="&#x3;" />
 			<key code="77" output="&#x1E;" />
-			<!-- gap, 78-95 -->
 			<key code="96" output="&#x10;" />
 			<key code="97" output="&#x10;" />
 			<key code="98" output="&#x10;" />
@@ -1091,14 +1044,6 @@
 			<when state="s6" output="&#x13A;" />
 			<when state="s8" output="&#x13E;" />
 		</action>
-		<action id="a37">
-			<when state="none" output="&#x107;" />
-			<when state="s2" output="&#x1E09;" />
-		</action>
-		<action id="a38">
-			<when state="none" output="&#x115;" />
-			<when state="s2" output="&#x1E1D;" />
-		</action>
 		<action id="a39">
 			<when state="none" output="C" />
 			<when state="s2" output="&#xC7;" />
@@ -1188,14 +1133,6 @@
 			<when state="s3" output="&#x1E6A;" />
 			<when state="s8" output="&#x164;" />
 		</action>
-		<action id="a50">
-			<when state="none" output="&#x106;" />
-			<when state="s2" output="&#x1E08;" />
-		</action>
-		<action id="a51">
-			<when state="none" output="&#x114;" />
-			<when state="s2" output="&#x1E1C;" />
-		</action>
 		<action id="a52">
 			<when state="none" output="a" />
 			<when state="s3" output="&#x227;" />
@@ -1217,10 +1154,6 @@
 		<action id="a54">
 			<when state="none" output="f" />
 			<when state="s3" output="&#x1E1F;" />
-		</action>
-		<action id="a55">
-			<when state="none" output="&#x17F;" />
-			<when state="s3" output="&#x1E9B;" />
 		</action>
 		<action id="a56">
 			<when state="none" output="o" />
@@ -1267,28 +1200,6 @@
 			<when state="s6" output="&#x17A;" />
 			<when state="s8" output="&#x17E;" />
 			<when state="s13" output="&#x1E91;" />
-		</action>
-		<action id="a61">
-			<when state="none" output="&#x15B;" />
-			<when state="s3" output="&#x1E65;" />
-		</action>
-		<action id="a62">
-			<when state="none" output="&#x161;" />
-			<when state="s3" output="&#x1E67;" />
-		</action>
-		<action id="a63">
-			<when state="none" output="&#x101;" />
-			<when state="s3" output="&#x1E1;" />
-			<when state="s7" output="&#x1DF;" />
-		</action>
-		<action id="a64">
-			<when state="none" output="&#x14D;" />
-			<when state="s3" output="&#x231;" />
-			<when state="s4" output="&#x22D;" />
-			<when state="s6" output="&#x1E53;" />
-			<when state="s7" output="&#x22B;" />
-			<when state="s11" output="&#x1E51;" />
-			<when state="s12" output="&#x1ED;" />
 		</action>
 		<action id="a65">
 			<when state="none" output="A" />
@@ -1379,28 +1290,6 @@
 			<when state="s8" output="&#x17D;" />
 			<when state="s13" output="&#x1E90;" />
 		</action>
-		<action id="a76">
-			<when state="none" output="&#x15A;" />
-			<when state="s3" output="&#x1E64;" />
-		</action>
-		<action id="a77">
-			<when state="none" output="&#x160;" />
-			<when state="s3" output="&#x1E66;" />
-		</action>
-		<action id="a78">
-			<when state="none" output="&#x100;" />
-			<when state="s3" output="&#x1E0;" />
-			<when state="s7" output="&#x1DE;" />
-		</action>
-		<action id="a79">
-			<when state="none" output="&#x14C;" />
-			<when state="s3" output="&#x230;" />
-			<when state="s4" output="&#x22C;" />
-			<when state="s6" output="&#x1E52;" />
-			<when state="s7" output="&#x22A;" />
-			<when state="s11" output="&#x1E50;" />
-			<when state="s12" output="&#x1EC;" />
-		</action>
 		<action id="a80">
 			<when state="none" output="i" />
 			<when state="s3" output="&#x131;" />
@@ -1448,30 +1337,6 @@
 			<when state="s4" output="&#x1E4F;" />
 			<when state="s9" output="&#x22B;" />
 		</action>
-		<action id="a86">
-			<when state="none" output="&#x103;" />
-			<when state="s4" output="&#x1EB5;" />
-			<when state="s6" output="&#x1EAF;" />
-			<when state="s11" output="&#x1EB1;" />
-		</action>
-		<action id="a87">
-			<when state="none" output="&#xE2;" />
-			<when state="s4" output="&#x1EAB;" />
-			<when state="s6" output="&#x1EA5;" />
-			<when state="s11" output="&#x1EA7;" />
-		</action>
-		<action id="a88">
-			<when state="none" output="&#xEA;" />
-			<when state="s4" output="&#x1EC5;" />
-			<when state="s6" output="&#x1EBF;" />
-			<when state="s11" output="&#x1EC1;" />
-		</action>
-		<action id="a89">
-			<when state="none" output="&#xF4;" />
-			<when state="s4" output="&#x1ED7;" />
-			<when state="s6" output="&#x1ED1;" />
-			<when state="s11" output="&#x1ED3;" />
-		</action>
 		<action id="a90">
 			<when state="none" output="U" />
 			<when state="s4" output="&#x168;" />
@@ -1506,44 +1371,11 @@
 			<when state="s4" output="&#x1E4E;" />
 			<when state="s9" output="&#x22A;" />
 		</action>
-		<action id="a95">
-			<when state="none" output="&#x102;" />
-			<when state="s4" output="&#x1EB4;" />
-			<when state="s6" output="&#x1EAE;" />
-			<when state="s11" output="&#x1EB0;" />
-		</action>
-		<action id="a96">
-			<when state="none" output="&#xC2;" />
-			<when state="s4" output="&#x1EAA;" />
-			<when state="s6" output="&#x1EA4;" />
-			<when state="s11" output="&#x1EA6;" />
-		</action>
-		<action id="a97">
-			<when state="none" output="&#xCA;" />
-			<when state="s4" output="&#x1EC4;" />
-			<when state="s6" output="&#x1EBE;" />
-			<when state="s11" output="&#x1EC0;" />
-		</action>
-		<action id="a98">
-			<when state="none" output="&#xD4;" />
-			<when state="s4" output="&#x1ED6;" />
-			<when state="s6" output="&#x1ED0;" />
-			<when state="s11" output="&#x1ED2;" />
-		</action>
 		<action id="a99">
 			<when state="none" output="&#xE1;" />
 			<when state="s5" output="&#x1EAF;" />
 			<when state="s10" output="&#x1FB;" />
 			<when state="s13" output="&#x1EA5;" />
-		</action>
-		<action id="a100">
-			<when state="none" output="&#x229;" />
-			<when state="s5" output="&#x1E1D;" />
-		</action>
-		<action id="a101">
-			<when state="none" output="&#xE0;" />
-			<when state="s5" output="&#x1EB1;" />
-			<when state="s13" output="&#x1EA7;" />
 		</action>
 		<action id="a102">
 			<when state="none" output="&#xE3;" />
@@ -1555,15 +1387,6 @@
 			<when state="s5" output="&#x1EAE;" />
 			<when state="s10" output="&#x1FA;" />
 			<when state="s13" output="&#x1EA4;" />
-		</action>
-		<action id="a104">
-			<when state="none" output="&#x228;" />
-			<when state="s5" output="&#x1E1C;" />
-		</action>
-		<action id="a105">
-			<when state="none" output="&#xC0;" />
-			<when state="s5" output="&#x1EB0;" />
-			<when state="s13" output="&#x1EA6;" />
 		</action>
 		<action id="a106">
 			<when state="none" output="&#xC3;" />
@@ -1583,25 +1406,9 @@
 			<when state="none" output="&#xE7;" />
 			<when state="s6" output="&#x1E09;" />
 		</action>
-		<action id="a110">
-			<when state="none" output="&#x113;" />
-			<when state="s6" output="&#x1E17;" />
-			<when state="s11" output="&#x1E15;" />
-		</action>
-		<action id="a111">
-			<when state="none" output="&#xEF;" />
-			<when state="s6" output="&#x1E2F;" />
-		</action>
 		<action id="a112">
 			<when state="none" output="&#xF8;" />
 			<when state="s6" output="&#x1FF;" />
-		</action>
-		<action id="a113">
-			<when state="none" output="&#xF5;" />
-			<when state="s6" output="&#x1E4D;" />
-			<when state="s7" output="&#x1E4F;" />
-			<when state="s9" output="&#x22D;" />
-			<when state="s13" output="&#x1ED7;" />
 		</action>
 		<action id="a114">
 			<when state="none" output="&#xFC;" />
@@ -1609,15 +1416,6 @@
 			<when state="s8" output="&#x1DA;" />
 			<when state="s9" output="&#x1D6;" />
 			<when state="s11" output="&#x1DC;" />
-		</action>
-		<action id="a115">
-			<when state="none" output="&#x169;" />
-			<when state="s6" output="&#x1E79;" />
-		</action>
-		<action id="a116">
-			<when state="none" output="&#x1E61;" />
-			<when state="s6" output="&#x1E65;" />
-			<when state="s8" output="&#x1E67;" />
 		</action>
 		<action id="a117">
 			<when state="none" output="&#xC6;" />
@@ -1631,15 +1429,6 @@
 		<action id="a119">
 			<when state="none" output="&#xC7;" />
 			<when state="s6" output="&#x1E08;" />
-		</action>
-		<action id="a120">
-			<when state="none" output="&#x112;" />
-			<when state="s6" output="&#x1E16;" />
-			<when state="s11" output="&#x1E14;" />
-		</action>
-		<action id="a121">
-			<when state="none" output="&#xCF;" />
-			<when state="s6" output="&#x1E2E;" />
 		</action>
 		<action id="a122">
 			<when state="none" output="&#xD8;" />
@@ -1659,145 +1448,40 @@
 			<when state="s9" output="&#x1D5;" />
 			<when state="s11" output="&#x1DB;" />
 		</action>
-		<action id="a125">
-			<when state="none" output="&#x168;" />
-			<when state="s6" output="&#x1E78;" />
-		</action>
-		<action id="a126">
-			<when state="none" output="&#x1E60;" />
-			<when state="s6" output="&#x1E64;" />
-			<when state="s8" output="&#x1E66;" />
-		</action>
 		<action id="a127">
 			<when state="none" output="&#xED;" />
 			<when state="s7" output="&#x1E2F;" />
 		</action>
-		<action id="a128">
-			<when state="none" output="&#x1D4;" />
-			<when state="s7" output="&#x1DA;" />
-		</action>
-		<action id="a129">
-			<when state="none" output="&#xF9;" />
-			<when state="s7" output="&#x1DC;" />
-		</action>
-		<action id="a130">
-			<when state="none" output="&#x16B;" />
-			<when state="s7" output="&#x1D6;" />
-		</action>
 		<action id="a131">
 			<when state="none" output="&#xCD;" />
 			<when state="s7" output="&#x1E2E;" />
-		</action>
-		<action id="a132">
-			<when state="none" output="&#x1D3;" />
-			<when state="s7" output="&#x1D9;" />
-		</action>
-		<action id="a133">
-			<when state="none" output="&#xD9;" />
-			<when state="s7" output="&#x1DB;" />
-		</action>
-		<action id="a134">
-			<when state="none" output="&#x16A;" />
-			<when state="s7" output="&#x1D5;" />
-		</action>
-		<action id="a135">
-			<when state="none" output="&#x1F3;" />
-			<when state="s8" output="&#x1C6;" />
-		</action>
-		<action id="a136">
-			<when state="none" output="&#x292;" />
-			<when state="s8" output="&#x1EF;" />
 		</action>
 		<action id="a137">
 			<when state="none" output="j" />
 			<when state="s8" output="&#x1F0;" />
 			<when state="s13" output="&#x135;" />
 		</action>
-		<action id="a138">
-			<when state="none" output="&#x1F2;" />
-			<when state="s8" output="&#x1C5;" />
-		</action>
-		<action id="a139">
-			<when state="none" output="&#x1F1;" />
-			<when state="s8" output="&#x1C4;" />
-		</action>
-		<action id="a140">
-			<when state="none" output="&#x1B7;" />
-			<when state="s8" output="&#x1EE;" />
-		</action>
 		<action id="a141">
 			<when state="none" output="&#xE9;" />
 			<when state="s9" output="&#x1E17;" />
 			<when state="s13" output="&#x1EBF;" />
 		</action>
-		<action id="a142">
-			<when state="none" output="&#xE8;" />
-			<when state="s9" output="&#x1E15;" />
-			<when state="s13" output="&#x1EC1;" />
-		</action>
-		<action id="a143">
-			<when state="none" output="&#xF2;" />
-			<when state="s9" output="&#x1E51;" />
-			<when state="s13" output="&#x1ED3;" />
-		</action>
 		<action id="a144">
 			<when state="none" output="&#xE4;" />
 			<when state="s9" output="&#x1DF;" />
-		</action>
-		<action id="a145">
-			<when state="none" output="&#x227;" />
-			<when state="s9" output="&#x1E1;" />
-		</action>
-		<action id="a146">
-			<when state="none" output="&#x22F;" />
-			<when state="s9" output="&#x231;" />
-		</action>
-		<action id="a147">
-			<when state="none" output="&#x1EB;" />
-			<when state="s9" output="&#x1ED;" />
 		</action>
 		<action id="a148">
 			<when state="none" output="&#xC9;" />
 			<when state="s9" output="&#x1E16;" />
 			<when state="s13" output="&#x1EBE;" />
 		</action>
-		<action id="a149">
-			<when state="none" output="&#xC8;" />
-			<when state="s9" output="&#x1E14;" />
-			<when state="s13" output="&#x1EC0;" />
-		</action>
-		<action id="a150">
-			<when state="none" output="&#xD2;" />
-			<when state="s9" output="&#x1E50;" />
-			<when state="s13" output="&#x1ED2;" />
-		</action>
 		<action id="a151">
 			<when state="none" output="&#xC4;" />
 			<when state="s9" output="&#x1DE;" />
 		</action>
-		<action id="a152">
-			<when state="none" output="&#x226;" />
-			<when state="s9" output="&#x1E0;" />
-		</action>
-		<action id="a153">
-			<when state="none" output="&#x22E;" />
-			<when state="s9" output="&#x230;" />
-		</action>
-		<action id="a154">
-			<when state="none" output="&#x1EA;" />
-			<when state="s9" output="&#x1EC;" />
-		</action>
-		<action id="a155">
-			<when state="none" output="&#x1EBD;" />
-			<when state="s13" output="&#x1EC5;" />
-		</action>
 		<action id="a156">
 			<when state="none" output="J" />
 			<when state="s13" output="&#x134;" />
-		</action>
-		<action id="a157">
-			<when state="none" output="&#x1EBC;" />
-			<when state="s13" output="&#x1EC4;" />
 		</action>
 	</actions>
 	<terminators>
