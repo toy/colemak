@@ -14,15 +14,24 @@ KEYLAYOUT_RU = 'Coelemak ru'
 
 task :default => :build
 
-rule '.iconset/icon_16x16.png' => proc{ |tn| tn.sub(/\.iconset\/icon_16x16\.png$/, '.png') } do |t|
-  iconset = Pathname(t.name).dirname
+rule '.icns' => '.png' do |t|
+  iconset = FSPath("#{t.source.delete_suffix('.png')}.iconset")
   rm_r iconset if iconset.exist?
   mkpath iconset
-  cp t.source, t.name
-end
 
-rule '.icns' => proc{ |tn| tn.sub(/\.icns$/, '.iconset/icon_16x16.png') } do |t|
-  sh *%W[iconutil --convert icns --output #{t.name} #{File.dirname(t.source)}]
+  {
+    16 => %w[16x16],
+    32 => %w[16x16@2x 32x32],
+    64 => %w[32x32@2x],
+  }.each do |size, names|
+    paths = names.map{ |name| iconset + "icon_#{name}.png" }
+    sh *%W[convert #{t.source} -resize #{size}x #{paths.first}]
+    paths.drop(1).each do |path|
+      ln paths.first, path
+    end
+  end
+
+  sh *%W[iconutil --convert icns --output #{t.name} #{iconset}]
 end
 
 file BUNDLE_NAME => %w[Rakefile icons/en.icns icons/ru.icns] + Dir['{**/*.rb,{keylayouts,resources}/*.*}'] do |t|
