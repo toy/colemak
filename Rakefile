@@ -187,7 +187,7 @@ file BUNDLE_NAME => %w[Rakefile icons/en.icns icons/ru.icns] + Dir['{**/*.rb,{ke
     ru_base_key_map = ru_layout.key_map_for([])
     ru_shift_key_map = ru_layout.key_map_for(%w[shift])
 
-    %w[; [ ] ' /].each do |output|
+    %w[; [ ] ' \\].each do |output|
       code = base_key_map.code(output)
       alt_key_map[code] = output
       alt_shift_key_map[code] = shift_key_map[code]
@@ -208,7 +208,7 @@ file BUNDLE_NAME => %w[Rakefile icons/en.icns icons/ru.icns] + Dir['{**/*.rb,{ke
       end
     end
 
-    code = base_key_map.code('/')
+    code = base_key_map.code('\\')
     base_key_map[code] = ','
     shift_key_map[code] = '.'
 
