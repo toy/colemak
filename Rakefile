@@ -15,7 +15,7 @@ KEYLAYOUT_RU = 'Coelemak ru'
 task :default => :build
 
 rule '.icns' => '.png' do |t|
-  iconset = FSPath("#{t.source.delete_suffix('.png')}.iconset")
+  iconset = FSPath(t.source).sub_ext('.iconset')
   rm_r iconset if iconset.exist?
   mkpath iconset
 
